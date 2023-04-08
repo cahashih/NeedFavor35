@@ -67,11 +67,22 @@ namespace Hakaton.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
-        {
+        { 
             if (!ModelState.IsValid)
             {
                 return View(model);
+
             }
+            var user = await UserManager.FindByNameAsync(model.Email);
+            if (user != null)
+            {
+                if (!await UserManager.IsEmailConfirmedAsync(user.Id))
+                {
+                    ModelState.AddModelError("", "Вы должны подтвердить email");
+                    return View(model);
+                }
+            }
+
 
             // Сбои при входе не приводят к блокированию учетной записи
             // Чтобы ошибки при вводе пароля инициировали блокирование учетной записи, замените на shouldLockout: true
@@ -89,6 +100,7 @@ namespace Hakaton.Controllers
                     ModelState.AddModelError("", "Неудачная попытка входа.");
                     return View(model);
             }
+            
         }
 
         //
@@ -155,15 +167,17 @@ namespace Hakaton.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    // await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // Дополнительные сведения о включении подтверждения учетной записи и сброса пароля см. на странице https://go.microsoft.com/fwlink/?LinkID=320771.
                     // Отправка сообщения электронной почты с этой ссылкой
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    await UserManager.SendEmailAsync(user.Id, "Подтверждение учетной записи", "Подтвердите вашу учетную запись, щелкнув <a href=\"" + callbackUrl + "\">здесь</a>");
+                    await UserManager.SendEmailAsync(user.Id, "Подтверждение электронной почты",
+                       "Для завершения регистрации перейдите по ссылке:: <a href=\""
+                                                       + callbackUrl + "\">завершить регистрацию</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return View("DisplayEmail");
                 }
                 AddErrors(result);
             }

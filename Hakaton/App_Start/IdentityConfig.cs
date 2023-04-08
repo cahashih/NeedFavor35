@@ -5,12 +5,16 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using MimeKit;
+using MailKit.Net.Smtp;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Hakaton.Models;
+using MailKit.Security;
+using System.Net.Mail;
 
 namespace Hakaton
 {
@@ -23,6 +27,55 @@ namespace Hakaton
 
         private Task configSendGridasync(IdentityMessage message)
         {
+
+
+            // настройка логина, пароля отправителя
+            var from = "cahashih2017@yandex.ru";
+            var pass = "vdanujbxhfyclzvb";
+
+            // адрес и порт smtp-сервера, с которого мы и будем отправлять письмо
+            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient("smtp.yandex.ru", 25);
+
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new System.Net.NetworkCredential(from, pass);
+            client.EnableSsl = true;
+
+            // создаем письмо: message.Destination - адрес получателя
+            var mail = new MailMessage(from, message.Destination);
+            mail.Subject = message.Subject;
+            mail.Body = message.Body;
+            mail.IsBodyHtml = true;
+
+            return client.SendMailAsync(mail);
+
+
+            /*
+
+            var emailMessage = new MimeMessage();
+
+            emailMessage.From.Add(new MailboxAddress("Администрация сайта", "login@yandex.ru"));
+            emailMessage.To.Add(new MailboxAddress("", message.Destination));
+            emailMessage.Subject = message.Subject;
+            emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+            {
+                Text = message.Body
+        };
+
+
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.yandex.ru", 25, false);
+                client.Authenticate("login@yandex.ru", "password");
+                client.Send(emailMessage);
+                client.Disconnect(true);
+            }
+
+
+
+
+
+            /*
             var myMessage = new SendGridMessage();
             myMessage.AddTo(message.Destination);
             myMessage.From = new System.Net.Mail.MailAddress(
@@ -48,6 +101,7 @@ namespace Hakaton
             {
                 return Task.FromResult(0);
             }
+            */
         }
     }
 

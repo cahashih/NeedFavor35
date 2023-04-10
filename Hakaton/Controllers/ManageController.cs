@@ -64,9 +64,16 @@ namespace Hakaton.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            var roles = await UserManager.GetRolesAsync(userId);
             var model = new IndexViewModel
             {
+                Role = roles[0].ToString() ,
+                Phone = await UserManager.GetPhoneNumberAsync(userId),
+                // LastName =
+                // Patronomyc = 
+                Email = await UserManager.GetEmailAsync(userId),
                 HasPassword = HasPassword(),
+                
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
@@ -117,17 +124,14 @@ namespace Hakaton.Controllers
                 return View(model);
             }
             // Создание и отправка маркера
-            var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), model.Number);
-            if (UserManager.SmsService != null)
+            await UserManager.SetPhoneNumberAsync(User.Identity.GetUserId(), model.Number);
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            if (user != null)
             {
-                var message = new IdentityMessage
-                {
-                    Destination = model.Number,
-                    Body = "Ваш код безопасности: " + code
-                };
-                await UserManager.SmsService.SendAsync(message);
+                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
             }
-            return RedirectToAction("VerifyPhoneNumber", new { PhoneNumber = model.Number });
+            return RedirectToAction("Index", new { Message = ManageMessageId.AddPhoneSuccess });
+            
         }
 
         //

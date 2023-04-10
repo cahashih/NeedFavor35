@@ -7,12 +7,22 @@ namespace Hakaton.Models
 {
     public class IndexViewModel
     {
+        public string Email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Patronomyc { get; set; }
+        public string Phone { get; set; }
+        public string Role { get; set; }
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
     }
+
+    
+
+
 
     public class ManageLoginsViewModel
     {
@@ -38,6 +48,8 @@ namespace Hakaton.Models
         [Compare("NewPassword", ErrorMessage = "Новый пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
     }
+
+    
 
     public class ChangePasswordViewModel
     {

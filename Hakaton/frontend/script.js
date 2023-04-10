@@ -1,13 +1,11 @@
-const themeToggle = document.querySelector('#theme-toggle');
-const body = document.querySelector('body');
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
 
-themeToggle.addEventListener('click', function() {
-  body.classList.toggle('dark');
+signUpButton.addEventListener('click', () => {
+container.classList.add("right-panel-active");
 });
-window.onscroll = function() {
-    if (window.pageYOffset > 0) {
-      document.querySelector('header').classList.add('sticky');
-    } else {
-      document.querySelector('header').classList.remove('sticky');
-    }
-  }
+
+signInButton.addEventListener('click', () => {
+container.classList.remove("right-panel-active");
+});

@@ -9,23 +9,41 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Hakaton.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin;
+using System.Collections;
 
 namespace Hakaton.Controllers
 {
+    public class ApplicationRoleManager : RoleManager<IdentityRole>
+    {
+        public ApplicationRoleManager(IRoleStore<IdentityRole, string> roleStore)
+        : base(roleStore) { }
+
+        public static ApplicationRoleManager Create(
+            IdentityFactoryOptions<ApplicationRoleManager> options,
+            IOwinContext context)
+        {
+            var manager = new ApplicationRoleManager(
+                new RoleStore<IdentityRole>(context.Get<ApplicationDbContext>()));
+            return manager;
+        }
+    }
     [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private ApplicationRoleManager _roleManager;
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ApplicationRoleManager roleManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            RoleManager = roleManager;
         }
 
         public ApplicationSignInManager SignInManager
@@ -51,6 +69,19 @@ namespace Hakaton.Controllers
                 _userManager = value;
             }
         }
+        public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return _roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            }
+            private set
+            {
+                _roleManager = value;
+            }
+        }
+
+
 
         //
         // GET: /Account/Login
@@ -151,6 +182,9 @@ namespace Hakaton.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+
+            
+            
             return View();
         }
 
@@ -163,18 +197,21 @@ namespace Hakaton.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
+                // string roleName = model.Role.ToString();
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     // await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // Дополнительные сведения о включении подтверждения учетной записи и сброса пароля см. на странице https://go.microsoft.com/fwlink/?LinkID=320771.
                     // Отправка сообщения электронной почты с этой ссылкой
+                    string rolename = model.Role ? "Executor" : "Customer";
+                    await UserManager.AddToRoleAsync(user.Id, rolename);
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Подтверждение электронной почты",
-                       "Для завершения регистрации перейдите по ссылке:: <a href=\""
+                       "Для завершения регистрации перейдите по ссылке: <a href=\""
                                                        + callbackUrl + "\">завершить регистрацию</a>");
 
                     return View("DisplayEmail");

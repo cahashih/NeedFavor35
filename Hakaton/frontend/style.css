@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Golos Text";
+    background-color: #ffffffff;
+}
+
+header {
+    position: fixed;
+    top: -80px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: top 0.3s ease-in-out;
+  }
+
+header.sticky {
+    top: 0;
+  }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo a {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    padding-left: 40rem;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 15px;
+    transition: all 0.3s ease;
+}
+
+.burger {
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle{
+    background: transparent;
+    border: transparent;
+}
+
+.main-content {
+    padding: 100px 50px;
+}
+
+body.dark {
+    background-color: #424769;
+    color: #ffffffff;
+}
+
+body.light {
+    background-color: #ffffffff;
+    color: #424769;
+}
+
+/* Footer */
+footer {
+    background-color: #2d3250;
+    color: #ffffff;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  footer p {
+    margin: 0;
+  }
+  

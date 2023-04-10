@@ -12,20 +12,18 @@ namespace Hakaton
     using System;
     using System.Collections.Generic;
     
-    public partial class RequestForService
+    public partial class FederalArea
     {
-        public int ServiceId { get; set; }
-        public string CustomerId { get; set; }
-        public System.DateTime DateOfCreation { get; set; }
-        public System.DateTime DateOfCompletion { get; set; }
-        public Nullable<int> TermOfService { get; set; }
-        public int CityId { get; set; }
-        public string Description { get; set; }
-        public Nullable<int> Place { get; set; }
-        public Nullable<int> ServiceCategoryId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public FederalArea()
+        {
+            this.Region = new HashSet<Region>();
+        }
     
-        public virtual City City { get; set; }
-        public virtual ServiceCategory ServiceCategory { get; set; }
-        public virtual TypeOfPlace TypeOfPlace { get; set; }
+        public int FederalAreaId { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Region> Region { get; set; }
     }
 }

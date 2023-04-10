@@ -1,31 +1,148 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Главная страница";
+
 }
+@Styles.Render("~/Content/style.css")
+<body>
+    <header>
+        <div class="container-div-prt">
+            <div class="prt st">
+                <img src="@Url.Content("~/Resource/Static/asd.png")" draggable="false" alt="">
+            </div>
+            <div class="prt sd">
+                <div class="ris">
+                    <h1>
+                        <span>Выбери </span><br> любую <br> услугу <br> в любой сфере
+                    </h1>
+                    <button class="btn"><img class="icon2" src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/icon2.png" alt=""> Услуги</button>
+                </div>
+            </div>
+        </div>
+    </header>
+        <section class="about">
+            <div class="div fir">
+                <h2>Мы компания NeedFavor35</h2>
+                <p>Мы предлагаем платформу, для выбора услуг для исполнителей и заказчиков. Услуги ог. КОроче дописать потом</p>
+                <button class="btn"><img src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/icon1.png" class="icon1" alt="">Как это работает</button>
+                <img src="./images/shapes.png" alt="">
+            </div>
+            <div class="div sec">
+                <img style="width:100%; height: 100%;" src="@Url.Content("~/Resource/Static/Le-recours-contre-un-permis-de-construire.jpg")" alt="">
+            </div>
+        </section>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+        <section class="features">
+            <div class="ftr">
+                <h3>Примеры услуг</h3>
+                <h2>Сварщик епта</h2>
+                <h3 style="font-weight: 300;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, cumque!<br /> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, cumque!</h3>
+            </div>
+            <div class="worker">
+                <img src="@Url.Content("~/Resource/Static/7lAjP58Sjl4.jpg")" draggable="false" alt="">
+            </div>
+        </section>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+        <section class="features">
+            <div class="ftr">
+                <h3>Что-то еще</h3>
+                <h2>Что-то тут тоже</h2>
+                <h3 style="font-weight: 300;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, cumque!<br />Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, cumque!</h3>
+            </div>
+            <div class="worker">
+                <img src="@Url.Content("~/Resource/Static/AdobeStock_55881857-e1498621656639.jpeg")" draggable="false" alt="">
+            </div>
+        </section>
+
+        <section class="why">
+            <div class="container-div-why">
+                <div class="dr">
+                    <div class="tw">
+                        <h3>Почему мы?</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, cumque!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, cumque!</p>
+                        <button class="btn"><img src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/icon2.png" class="icon2" alt=""> Услуги</button>
+                    </div>
+                </div>
+                <div class="dr">
+                    <figure class="tw">
+                        <img src="@Url.Content("~/Resource/Static/stroitel-universal-i.jpg")" draggable="false" alt="">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="cover">
+            <div>
+                <img title="Play" src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/play.png" alt="">
+                <h4>Как работает наш сервис ?</h4>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cont-btn">
+                <span>Начни сейчас</span>
+                <div class="container" id="container">
+                    <div class="form-container sign-up-container">
+                        <form action="#">
+                            <h1>Создать аккаунт</h1>
+                            <button class="button-form">@Html.ActionLink("Создать", "Register", "Account")</button>
+                        </form>
+                    </div>
+                    <div class="form-container sign-in-container">
+                        <form action="#">
+                            <h1>Войти в аккаунт</h1>
+                            <button class="button-form">@Html.ActionLink("Войти", "Login", "Account")</button>
+                        </form>
+                    </div>
+                    <div class="overlay-container">
+                        <div class="overlay">
+                            <div class="overlay-panel overlay-left">
+                                <h1>С возвращением!</h1>
+                                <button class="ghost" class="button-form" id="signIn">Войти</button>
+                            </div>
+                            <div class="overlay-panel overlay-right">
+                                <h1>Создать аккаунт</h1>
+                                <button class="ghost" class="button-form" id="signUp">Создать</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="cont-post">
+            </div>
+        </section>
+
+        <footer>
+            <div class="ftr-container">
+                <div class="fdb">
+                    <img class="logo" src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/band.png" alt="">
+                    <div>
+                        <img src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/dribbble.png" alt="">
+                        <img src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/Instagram.png" alt="">
+                        <img src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/Twitter.png" alt="">
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Услуги</h2>
+                    <h5>Раз</h5>
+                    <h5>Два</h5>
+                    <h5>Три</h5>
+                    <h5>Четыре</h5>
+                    <h5>Пять</h5>
+                </div>
+
+                <div>
+                    <h2>О нас</h2>
+                    <h5>Раз</h5>
+                    <h5>Два</h5>
+                    <h5>Три</h5>
+                </div>
+
+                <div>
+                    <h2>Контакты</h2>
+                    <h5>Компания</h5>
+                </div>
+            </div>
+        </footer>
+</body>

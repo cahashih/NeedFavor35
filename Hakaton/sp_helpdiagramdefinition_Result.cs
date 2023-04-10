@@ -10,20 +10,10 @@
 namespace Hakaton
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class TypeOfPlace
+    public partial class sp_helpdiagramdefinition_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TypeOfPlace()
-        {
-            this.AnnouncementService = new HashSet<AnnouncementService>();
-        }
-    
-        public int TypeOfPlaceId { get; set; }
-        public string Name { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AnnouncementService> AnnouncementService { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

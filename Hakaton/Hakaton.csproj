@@ -208,6 +208,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnouncementService.cs">
+      <DependentUpon>NeedFavor.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -225,6 +228,9 @@
     <Compile Include="AspNetUsers.cs">
       <DependentUpon>NeedFavor.tt</DependentUpon>
     </Compile>
+    <Compile Include="CategoryService.cs">
+      <DependentUpon>NeedFavor.tt</DependentUpon>
+    </Compile>
     <Compile Include="City.cs">
       <DependentUpon>NeedFavor.tt</DependentUpon>
     </Compile>
@@ -234,8 +240,20 @@
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>NeedFavor.tt</DependentUpon>
     </Compile>
+    <Compile Include="ExecutionService.cs">
+      <DependentUpon>NeedFavor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FederalArea.cs">
+      <DependentUpon>NeedFavor.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryCustomer.cs">
+      <DependentUpon>NeedFavor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryExecutor.cs">
+      <DependentUpon>NeedFavor.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -255,14 +273,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NeedFavor.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestForService.cs">
+    <Compile Include="PhotoCompletedService.cs">
       <DependentUpon>NeedFavor.tt</DependentUpon>
     </Compile>
-    <Compile Include="ServiceCategory.cs">
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Region.cs">
+      <DependentUpon>NeedFavor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs">
+      <DependentUpon>NeedFavor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>NeedFavor.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
       <DependentUpon>NeedFavor.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="StatusExecutionService.cs">
+      <DependentUpon>NeedFavor.tt</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>NeedFavor.tt</DependentUpon>
     </Compile>
@@ -275,8 +305,27 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\err404.css" />
+    <Content Include="Content\preenter.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\styleLAST.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="frontend\err404.css" />
+    <Content Include="frontend\err404.html" />
+    <Content Include="frontend\img\bag.svg" />
+    <Content Include="frontend\img\customer-support.png" />
+    <Content Include="frontend\img\logo2.svg" />
+    <Content Include="frontend\img\pngwing.com.png" />
+    <Content Include="frontend\img\sad.jpg" />
+    <Content Include="frontend\index.html" />
+    <Content Include="frontend\indexLAST.html" />
+    <Content Include="frontend\preenter.css" />
+    <Content Include="frontend\preenter.html" />
+    <Content Include="frontend\script.js" />
+    <Content Include="frontend\scriptLAST.js" />
+    <Content Include="frontend\style.css" />
+    <Content Include="frontend\styleLAST.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="NeedFavor.Context.tt">
@@ -289,6 +338,18 @@
       <DependentUpon>NeedFavor.edmx</DependentUpon>
       <LastGenOutput>NeedFavor.cs</LastGenOutput>
     </Content>
+    <Content Include="Resource\ImageProfile\glbmrtshk-scaled.jpg" />
+    <Content Include="Resource\Static\0-MHzFf1rO4.jpg" />
+    <Content Include="Resource\Static\123.png" />
+    <Content Include="Resource\Static\7lAjP58Sjl4.jpg" />
+    <Content Include="Resource\Static\AdobeStock_55881857-e1498621656639.jpeg" />
+    <Content Include="Resource\Static\asd.png" />
+    <Content Include="Resource\Static\klipartz.com 1.png" />
+    <Content Include="Resource\Static\klipartz.com.png" />
+    <Content Include="Resource\Static\Le-recours-contre-un-permis-de-construire.jpg" />
+    <Content Include="Resource\Static\str.png" />
+    <Content Include="Resource\Static\stroitel-universal-i.jpg" />
+    <Content Include="Resource\Static\Uwd40yYZfRw.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="NeedFavor.edmx">
@@ -298,6 +359,8 @@
     <Content Include="NeedFavor.edmx.diagram">
       <DependentUpon>NeedFavor.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\pivasblazer-001-site1 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\pivasblazer-001-site1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -309,6 +372,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\scriptLAST.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

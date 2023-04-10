@@ -12,20 +12,19 @@ namespace Hakaton
     using System;
     using System.Collections.Generic;
     
-    public partial class City
+    public partial class CategoryService
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public City()
+        public CategoryService()
         {
-            this.AnnouncementService = new HashSet<AnnouncementService>();
+            this.Service = new HashSet<Service>();
         }
     
-        public int CityId { get; set; }
+        public int CategoryServiceId { get; set; }
         public string Name { get; set; }
-        public Nullable<int> RegionId { get; set; }
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AnnouncementService> AnnouncementService { get; set; }
-        public virtual Region Region { get; set; }
+        public virtual ICollection<Service> Service { get; set; }
     }
 }

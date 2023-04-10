@@ -1,43 +1,65 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - приложение ASP.NET</title>
-    @Styles.Render("~/Content/css")
+    <title>NeedFavor35</title>
+    @Styles.Render("~/Content/style.css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="Дополнительные параметры">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Информация", "About", "Home")</li>
-                    <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
-                </ul>
+    <header>
+        <nav>
+            <ul>
+                <li>@Html.ActionLink("Услуги", "Index", "Home")</li>
+                <li>@Html.ActionLink("О нас", "About", "Home")</li>
+                <li>@Html.ActionLink("Связаться", "Contact", "Home")</a></li>
+                <li>@Html.ActionLink("Связаться", "Contact", "Home")</a></li>
+                <li><img onclick="msg()" src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/menu.png" draggable="false" alt=""></li>
+            </ul>
+            <div >
                 @Html.Partial("_LoginPartial")
             </div>
+            <div>
+                <img src="@Url.Content("~/Resource/Static/123.png")" draggable="false" alt="">
+            </div>
+        </nav>
+    </header>
+    @*
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="Дополнительные параметры">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Информация", "About", "Home")</li>
+                        <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="container body-content">
+    *@
+    <div>
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>
-        </footer>
-    </div>
 
+
+    </div>
+    @*
+        <footer>
+            <p>&copy; @DateTime.Now.Year - SHURHUNCHIKI - Все права защищены</p>
+        </footer>
+    *@
+    @Scripts.Render("~/Scripts/script.js")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

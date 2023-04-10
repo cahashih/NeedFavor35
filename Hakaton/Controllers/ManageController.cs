@@ -112,7 +112,21 @@ namespace Hakaton.Controllers
         {
             return View();
         }
-
+        /*
+        [HttpPost]
+        public ActionResult UploadImageProfile(HttpPostedFileBase upload)
+        {
+            if (upload != null)
+            {
+                // получаем имя файла
+                string fileName = System.IO.Path.GetFileName(upload.FileName);
+                // сохраняем файл в папку Files в проекте
+                upload.SaveAs(Server.MapPath("~/Resource/ImageProfile" + fileName));
+                
+            }
+            return RedirectToAction("Index");
+        }
+        */
         //
         // POST: /Manage/AddPhoneNumber
         [HttpPost]

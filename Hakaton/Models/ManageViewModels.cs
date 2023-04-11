@@ -7,7 +7,9 @@ namespace Hakaton.Models
 {
     public class IndexViewModel
     {
+        public string PhotoProfilePath { get; set; }    
         public string Email { get; set; }
+        public string ShortInfo { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Patronomyc { get; set; }
@@ -20,7 +22,17 @@ namespace Hakaton.Models
         public bool BrowserRemembered { get; set; }
     }
 
-    
+    public class ChangeProfileInfo
+    {
+        
+        public string ShortInfo { get; set; }
+        [DataType(DataType.Text)]
+        public string FirstName { get; set; }
+        [DataType(DataType.Text)]
+        public string LastName { get; set; }
+        [DataType(DataType.Text)]
+        public string Patronomyc { get; set; }
+    }
 
 
 

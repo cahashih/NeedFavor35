@@ -80,6 +80,10 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="PhotoProfilePath" Type="nvarchar(max)" />
+          <Property Name="ShortInfo" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Patronomyc" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="CategoryService">
           <Key>
@@ -590,6 +594,10 @@
           <NavigationProperty Name="AnnouncementService" Relationship="db_a9744d_needfavorModel.FK_AnnouncementService_AspNetUsers" FromRole="AspNetUsers" ToRole="AnnouncementService" />
           <NavigationProperty Name="ExecutionService" Relationship="db_a9744d_needfavorModel.FK_ExecutionService_AspNetUsers" FromRole="AspNetUsers" ToRole="ExecutionService" />
           <Property Name="PhotoProfilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShortInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronomyc" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -1100,6 +1108,10 @@
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="db_a9744d_needfavorModel.AspNetUsers">
               <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Patronomyc" ColumnName="Patronomyc" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ShortInfo" ColumnName="ShortInfo" />
                 <ScalarProperty Name="PhotoProfilePath" ColumnName="PhotoProfilePath" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

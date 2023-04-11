@@ -1,14 +1,14 @@
 ﻿@model Hakaton.Models.IndexViewModel
 @{
     ViewBag.Title = "Управление";
-    var imageProfile = @Url.Content("~/Resource/ImageProfile/glbmrtshk-scaled.jpg");
+    var imageProfile = @Url.Content(Model.PhotoProfilePath);
 }
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
     <img style="width:100px; height:100px" src="@imageProfile" />
     <h3>Выберите файл для загрузки</h3>
-    @using (Html.BeginForm("UploadImageProfile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("UploadImageProfile", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <input type="file" name="upload" /><br>
         <input type="submit" value="Загрузить" />
@@ -22,6 +22,23 @@
     </h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>Фамилия: @Model.FirstName</dt>
+        <dd>
+            
+        </dd>
+        <dt>Имя: @Model.LastName</dt>
+        <dd>
+            
+        </dd>
+        <dt>Отчество: @Model.Patronomyc</dt>
+        <dd>
+            
+        </dd>
+        <dt>Краткая информация: @Model.ShortInfo</dt>
+        <dd>
+            
+        </dd>
+        <dd>@Html.ActionLink("Изменить информацию", "ChangeProfileInfo") </dd>
         <dt>Телефон:</dt>
         <dd>
 
@@ -54,60 +71,60 @@
 
 
         @*
-            Номера телефонов можно использовать в качестве второго проверочного фактора для системы двухфакторной проверки подлинности.
+        Номера телефонов можно использовать в качестве второго проверочного фактора для системы двухфакторной проверки подлинности.
 
-             В <a href="https://go.microsoft.com/fwlink/?LinkId=403804">этой статье</a>
-                можно узнать, как для этого приложения ASP.NET настроить двухфакторную проверку подлинности с использованием SMS.
+         В <a href="https://go.microsoft.com/fwlink/?LinkId=403804">этой статье</a>
+            можно узнать, как для этого приложения ASP.NET настроить двухфакторную проверку подлинности с использованием SMS.
 
-             Настроив двухфакторную проверку подлинности, раскомментируйте следующий блок
+         Настроив двухфакторную проверку подлинности, раскомментируйте следующий блок
         *@
         @*
-            <dt>Номер телефона:</dt>
-            <dd>
-                @(Model.PhoneNumber ?? "None")
-                @if (Model.PhoneNumber != null)
-                {
-                    <br />
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
-                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>[<input type="submit" value="Удалить" class="btn-link" />]</text>
-                    }
-                }
-                else
-                {
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
-                }
-            </dd>
-        *@
-        @*
-            <dt>Двухфакторная проверка подлинности:</dt>
-            <dd>
-                <p>
-                    Поставщики двухфакторной проверки подлинности не настроены. В <a href="https://go.microsoft.com/fwlink/?LinkId=403804">этой статье</a>
-                    можно узнать, как настроить двухфакторную проверку подлинности для этого приложения ASP.NET.
-                </p>
-        *@
-        @*@if (Model.TwoFactor)
+        <dt>Номер телефона:</dt>
+        <dd>
+            @(Model.PhoneNumber ?? "None")
+            @if (Model.PhoneNumber != null)
             {
-                using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                <br />
+                <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
+                using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
-                    <text>Включено
-                    <input type="submit" value="Отключить" class="btn btn-link" />
-                    </text>
+                    <text>[<input type="submit" value="Удалить" class="btn-link" />]</text>
                 }
             }
             else
             {
-                using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <text>Отключено
-                    <input type="submit" value="Включить" class="btn btn-link" />
-                    </text>
-                }
-            }*@
+                <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
+            }
+        </dd>
+        *@
+        @*
+        <dt>Двухфакторная проверка подлинности:</dt>
+        <dd>
+            <p>
+                Поставщики двухфакторной проверки подлинности не настроены. В <a href="https://go.microsoft.com/fwlink/?LinkId=403804">этой статье</a>
+                можно узнать, как настроить двухфакторную проверку подлинности для этого приложения ASP.NET.
+            </p>
+        *@
+        @*@if (Model.TwoFactor)
+        {
+            using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <text>Включено
+                <input type="submit" value="Отключить" class="btn btn-link" />
+                </text>
+            }
+        }
+        else
+        {
+            using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <text>Отключено
+                <input type="submit" value="Включить" class="btn btn-link" />
+                </text>
+            }
+        }*@
     </dl>
 </div>

@@ -338,6 +338,7 @@
       <DependentUpon>NeedFavor.edmx</DependentUpon>
       <LastGenOutput>NeedFavor.cs</LastGenOutput>
     </Content>
+    <Content Include="Resource\ImageProfile\defoult.jpg" />
     <Content Include="Resource\ImageProfile\glbmrtshk-scaled.jpg" />
     <Content Include="Resource\Static\0-MHzFf1rO4.jpg" />
     <Content Include="Resource\Static\123.png" />
@@ -409,6 +410,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\DisplayEmail.cshtml" />
+    <Content Include="Views\Manage\ChangeProfileInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

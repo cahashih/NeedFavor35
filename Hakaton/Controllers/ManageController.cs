@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Hakaton.Models;
+using System.Data.Entity;
 
 namespace Hakaton.Controllers
 {
@@ -15,6 +16,14 @@ namespace Hakaton.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private static Random random = new Random();
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789qwertyuiopasdfghjklzxcvbnm";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
 
         public ManageController()
         {
@@ -61,16 +70,35 @@ namespace Hakaton.Controllers
                 : message == ManageMessageId.Error ? "Произошла ошибка."
                 : message == ManageMessageId.AddPhoneSuccess ? "Ваш номер телефона добавлен."
                 : message == ManageMessageId.RemovePhoneSuccess ? "Ваш номер телефона удален."
+                : message == ManageMessageId.UnknownFileType ? "Неверный тип фото"
+                : message == ManageMessageId.AddPhotoSuccess ? "Фото успешно добавлено"
+                : message == ManageMessageId.ChangeInfoSuccess ? "Информация успешно обновлена"
+                : message == ManageMessageId.FileIsNull ? "Выберите файл"
                 : "";
-
+            
             var userId = User.Identity.GetUserId();
             var roles = await UserManager.GetRolesAsync(userId);
+            var userDB = await db_a9744d_needfavorEntities.GetContext().AspNetUsers.FirstOrDefaultAsync(u => u.Id == userId);
+            string UserPhotoProfilePath = null;
+            if (userDB.PhotoProfilePath == null)
+            {
+                UserPhotoProfilePath = "~/Resource/ImageProfile/defoult.jpg";
+            }
+            else
+            {
+                UserPhotoProfilePath = userDB.PhotoProfilePath;
+            }
             var model = new IndexViewModel
             {
+                
+                PhotoProfilePath = UserPhotoProfilePath,
                 Role = roles[0].ToString() ,
                 Phone = await UserManager.GetPhoneNumberAsync(userId),
-                // LastName =
-                // Patronomyc = 
+                ShortInfo = userDB.ShortInfo ?? "Не задано",
+                FirstName = userDB.FirstName ?? "Не задано", 
+                LastName = userDB.LastName ?? "Не задано",
+                
+                Patronomyc = userDB.Patronomyc ?? "Не задано",
                 Email = await UserManager.GetEmailAsync(userId),
                 HasPassword = HasPassword(),
                 
@@ -112,22 +140,7 @@ namespace Hakaton.Controllers
         {
             return View();
         }
-        /*
-        [HttpPost]
-        public ActionResult UploadImageProfile(HttpPostedFileBase upload)
-        {
-            if (upload != null)
-            {
-                // получаем имя файла
-                string fileName = System.IO.Path.GetFileName(upload.FileName);
-                // сохраняем файл в папку Files в проекте
-                upload.SaveAs(Server.MapPath("~/Resource/ImageProfile" + fileName));
-                
-            }
-            return RedirectToAction("Index");
-        }
-        */
-        //
+
         // POST: /Manage/AddPhoneNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -145,8 +158,105 @@ namespace Hakaton.Controllers
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
             }
             return RedirectToAction("Index", new { Message = ManageMessageId.AddPhoneSuccess });
-            
+
         }
+        public async Task<ActionResult> ChangeProfileInfo()
+        {
+            var userId = User.Identity.GetUserId();
+            var userDB = await db_a9744d_needfavorEntities.GetContext().AspNetUsers.FirstOrDefaultAsync(u => u.Id == userId);
+            var model = new ChangeProfileInfo
+            {
+
+                
+                ShortInfo = userDB.ShortInfo ?? "Не задано",
+                FirstName = userDB.FirstName ?? "Не задано",
+                LastName = userDB.LastName ?? "Не задано",
+
+                Patronomyc = userDB.Patronomyc ?? "Не задано",
+               
+            };
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ChangeProfileInfo(ChangeProfileInfo model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            // Создание и отправка маркера
+            var userId = User.Identity.GetUserId();
+            var userDB = await db_a9744d_needfavorEntities.GetContext().AspNetUsers.FirstOrDefaultAsync(u => u.Id == userId);
+            userDB.ShortInfo = model.ShortInfo?? "";
+            userDB.FirstName = model.FirstName ?? "";
+            userDB.LastName = model.LastName ?? "";
+            userDB.Patronomyc = model.Patronomyc ?? "";
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            if (user != null)
+            {
+                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+            }
+            return RedirectToAction("Index", new { Message = ManageMessageId.ChangeInfoSuccess});
+
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> UploadImageProfile(HttpPostedFileBase upload)
+        {
+            if (upload != null)
+            {
+                // получаем имя файла
+
+                string fileName = RandomString(10);
+                string typePhoto = System.IO.Path.GetExtension(upload.FileName);
+                if (typePhoto == ".jpg" || typePhoto == ".png" || typePhoto == ".bmp")
+                {
+                    string fileNamee = System.IO.Path.GetFileName(upload.FileName);
+                    //сохраняем файл в папку Files в проекте
+                    //upload.SaveAs(Server.MapPath("~/Resource/ImageProfile/" + fileNamee));
+
+                    // сохраняем файл в папку Files в проекте
+                    
+                    string photoProfilePath = "~/Resource/ImageProfile/" + fileName + typePhoto;
+                    upload.SaveAs(Server.MapPath("~/Resource/ImageProfile/" + fileName + typePhoto));
+                    // System.IO.File.Move("~/Resource/ImageProfile/" + fileNamee, photoProfilePath);
+
+                    var userId = User.Identity.GetUserId();
+                    var userPhoto = await db_a9744d_needfavorEntities.GetContext().AspNetUsers.FirstOrDefaultAsync(u => u.Id == userId);
+                    userPhoto.PhotoProfilePath = photoProfilePath;
+                    await db_a9744d_needfavorEntities.GetContext().SaveChangesAsync();
+                    var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                    if (user != null)
+                    {
+                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    }
+
+                }
+                else
+                {
+                    return RedirectToAction("Index", new { Message = ManageMessageId.UnknownFileType });
+                }
+            }
+
+            else
+            {
+                return RedirectToAction("Index", new { Message = ManageMessageId.FileIsNull });
+            }
+            return RedirectToAction("Index", new { Message = ManageMessageId.AddPhotoSuccess });
+        }
+
+
+
+    
+
+
+    
+
+    
+
+
+
 
         //
         // POST: /Manage/EnableTwoFactorAuthentication
@@ -399,6 +509,10 @@ namespace Hakaton.Controllers
             SetPasswordSuccess,
             RemoveLoginSuccess,
             RemovePhoneSuccess,
+            UnknownFileType,
+            AddPhotoSuccess,
+            ChangeInfoSuccess,
+            FileIsNull,
             Error
         }
 

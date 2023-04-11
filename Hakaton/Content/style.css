@@ -143,14 +143,14 @@ q {
 
 /*               header                */
 header {
-    height: 672px;
+    height: 120px;
     width: 100%;
     max-width: 1420px;
     margin: auto;
 }
 
     header nav {
-        height: 130px;
+        height: 80px;
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-around;

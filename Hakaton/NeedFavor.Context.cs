@@ -24,13 +24,13 @@ namespace Hakaton
         }
         public static db_a9744d_needfavorEntities GetContext()
         {
-            if (_context == null)
+            if(_context == null)
             {
                 _context = new db_a9744d_needfavorEntities();
             }
             return _context;
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

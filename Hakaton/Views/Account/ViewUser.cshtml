@@ -1,0 +1,74 @@
+﻿@model Hakaton.Models.ViewProfileInfo
+
+@{
+    ViewBag.Title = "ViewUser";
+}
+
+<h2>ViewUser</h2>
+
+<div>
+    <h4>ViewProfileInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotoProfilePath)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.PhotoProfilePath)" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patronomyc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patronomyc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

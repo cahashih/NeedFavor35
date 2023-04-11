@@ -15,15 +15,17 @@
             <ul>
                 <li>@Html.ActionLink("Услуги", "Index", "Home")</li>
                 <li>@Html.ActionLink("О нас", "About", "Home")</li>
-                <li>@Html.ActionLink("Связаться", "Contact", "Home")</a></li>
-                <li>@Html.ActionLink("Связаться", "Contact", "Home")</a></li>
+                <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
                 <li><img onclick="msg()" src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/menu.png" draggable="false" alt=""></li>
             </ul>
             <div >
                 @Html.Partial("_LoginPartial")
             </div>
             <div>
-                <img src="@Url.Content("~/Resource/Static/123.png")" draggable="false" alt="">
+                <a href="@Url.Action("")">
+                    <img src="@Url.Content("~/Resource/Static/123.png")" />
+                </a>
             </div>
         </nav>
     </header>

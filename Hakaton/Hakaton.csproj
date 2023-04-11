@@ -305,8 +305,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\enter.css" />
     <Content Include="Content\err404.css" />
     <Content Include="Content\preenter.css" />
+    <Content Include="Content\recpass.css" />
+    <Content Include="Content\recpassemail.css" />
+    <Content Include="Content\reg.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\styleLAST.css" />
     <Content Include="favicon.ico" />
@@ -319,13 +323,8 @@
     <Content Include="frontend\img\pngwing.com.png" />
     <Content Include="frontend\img\sad.jpg" />
     <Content Include="frontend\index.html" />
-    <Content Include="frontend\indexLAST.html" />
-    <Content Include="frontend\preenter.css" />
-    <Content Include="frontend\preenter.html" />
     <Content Include="frontend\script.js" />
-    <Content Include="frontend\scriptLAST.js" />
     <Content Include="frontend\style.css" />
-    <Content Include="frontend\styleLAST.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="NeedFavor.Context.tt">
@@ -411,6 +410,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\DisplayEmail.cshtml" />
     <Content Include="Views\Manage\ChangeProfileInfo.cshtml" />
+    <Content Include="Views\Account\ViewUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,6 +12,7 @@ using Hakaton.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using System.Collections;
+using System.Data.Entity;
 
 namespace Hakaton.Controllers
 {
@@ -91,7 +92,39 @@ namespace Hakaton.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+        public async Task<ActionResult> ViewUser(string userId)
+        {
+            if(userId != null)
+            {
+                var roles = await UserManager.GetRolesAsync(userId);
+                var userDB = await db_a9744d_needfavorEntities.GetContext().AspNetUsers.FirstOrDefaultAsync(u => u.Id == userId);
 
+                string UserPhotoProfilePath = null;
+                if (userDB.PhotoProfilePath == null)
+                {
+                    UserPhotoProfilePath = "~/Resource/ImageProfile/defoult.jpg";
+                }
+                else
+                {
+                    UserPhotoProfilePath = userDB.PhotoProfilePath;
+                }
+                var model = new ViewProfileInfo
+                {
+
+                    PhotoProfilePath = UserPhotoProfilePath,
+                    Role = roles[0].ToString(),
+                    Phone = await UserManager.GetPhoneNumberAsync(userId),
+                    ShortInfo = userDB.ShortInfo ?? "Не задано",
+                    FirstName = userDB.FirstName ?? "Не задано",
+                    LastName = userDB.LastName ?? "Не задано",
+
+                    Patronomyc = userDB.Patronomyc ?? "Не задано",
+
+                };
+                return View(model);
+            }
+            return View();
+        }
         //
         // POST: /Account/Login
         [HttpPost]

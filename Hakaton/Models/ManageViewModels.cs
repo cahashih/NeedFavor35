@@ -22,6 +22,19 @@ namespace Hakaton.Models
         public bool BrowserRemembered { get; set; }
     }
 
+
+    public class ViewProfileInfo
+    {
+        public string PhotoProfilePath { get; set; }
+        public string Role { get; set; }
+        public string Phone { get; set; }
+        public string ShortInfo { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Patronomyc { get; set; }
+    }
+
+
     public class ChangeProfileInfo
     {
         

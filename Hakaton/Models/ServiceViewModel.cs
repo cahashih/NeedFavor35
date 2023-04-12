@@ -30,17 +30,22 @@ namespace Hakaton.Models
         
         public string CustomerId { get; set; }
         [Required]
+        [Display(Name = "заголовок")]
         public string Title { get; set; }
         [Required]
+        [Display(Name = "описание")]
         public string Description { get; set; }
         [Required]
-
+        [Display(Name = "желаемая стоимость от")]
         public float HaveCostStart { get; set; }
         [Required]
+        [Display(Name = "желаемая стоимость до")]
         public float HaveCost { get; set; }
+        [Display(Name = "сроки оказания")]
         [Required]
         public string Period { get; set; }
         [Required]
+        [Display(Name = "место оказания услуги")]
         public string Position { get; set; }
     }
 

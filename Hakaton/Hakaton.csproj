@@ -383,6 +383,7 @@
     <Content Include="Scripts\regfin.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\scriptt.js" />
+    <Content Include="Content\createAnnouncement.css" />
     <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -395,6 +396,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Service\CreateAnnouncement.cshtml" />
+    <Content Include="Views\Account\UserView.cshtml" />
     <None Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
@@ -422,7 +424,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\DisplayEmail.cshtml" />
     <Content Include="Views\Manage\ChangeProfileInfo.cshtml" />
-    <Content Include="Views\Account\ViewUser.cshtml" />
     <Content Include="Views\Service\GetItem.cshtml" />
   </ItemGroup>
   <ItemGroup>

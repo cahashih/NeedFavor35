@@ -81,7 +81,21 @@ namespace Hakaton.Controllers
             return View(selectedItem);
         }
 
-
+        [HttpPost]
+        public async Task<ActionResult> TakeService(string serviceId)
+        {
+            int ServiceIdd = Convert.ToInt32(serviceId);
+            var userId = User.Identity.GetUserId();
+            var roles = await UserManager.GetRolesAsync(userId);
+            if (roles[0].ToString() == "Executor")
+            {
+                var Service = await db_a9744d_needfavorEntities.GetContext().ServiceCustomerExecutor.FirstOrDefaultAsync(u => u.id == ServiceIdd);
+                Service.ExecutorId = userId;
+                await db_a9744d_needfavorEntities.GetContext().SaveChangesAsync();
+                return View();
+            }
+            return View();
+        }
         public async Task<ActionResult> CreateAnnouncement()
         {
             

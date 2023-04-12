@@ -1,0 +1,48 @@
+﻿@model Hakaton.Models.ViewProfileInfo
+@{
+    Layout = null;
+    var imageProfile = @Url.Content(Model.PhotoProfilePath);
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+</head>
+<body>
+    @Styles.Render("~/Content/profile.css")
+    <!-- MIDDLE-CONTAINER -->
+    <div class="main-container">
+        <div class="middle-container container">
+
+            <div class="profile block">
+                <!-- PROFILE (MIDDLE-CONTAINER) -->
+                <h1 class="user-name">
+                    @if (Model.Role == "Customer")
+                    {@("Исполнитель")}
+                    else
+                    {@("Заказчик")
+                    }
+                </h1>
+                <div class="profile-picture big-profile-picture clear">
+                    <img width="150px" height="150px" src="@imageProfile" />
+
+
+                </div>
+                <h2 class="user-name">@Model.Email</h2>
+                <h1 class="user-name">@Model.FirstName  @Model.LastName @Model.Patronomyc</h1>
+                <div class="profile-description">
+                    <p class="scnd-font-color">@Model.ShortInfo</p>
+                </div>
+                <ul class="profile-options horizontal-list">
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

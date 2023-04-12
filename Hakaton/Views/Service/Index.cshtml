@@ -7,16 +7,30 @@
     <title>Clickable List View</title>
 </head>
 <body>
-    <h2>Users</h2>
-    <ul>
-        @foreach (var user in ViewBag.Users)
-        {
-            <li>@user.Title</li>
-            <li>@user.Description</li>
-            <li>@user.HaveCostStart</li>
-            <li>@user.HaveCost</li>
-        }
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Услуга</th>
+                <th>Краткое описание</th>
+                <th>Желаемая стоимость</th>
+                <th>Сроки</th>
+                <th>Место оказания услуги</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ServiceCustomerExecutor user in ViewBag.Users)
+            {
+                <tr>
+                    <td>@user.Title</td>
+                    <td>@user.Description</td>
+                    <td>@user.HaveCostStart - @user.HaveCost</td>
+                    <td>@user.Period</td>
+                    <td>@user.Position</td>
+                    <td>@Html.ActionLink("Откликнуться", "TakeService", "Service", new { serviceId = user.id.ToString() }, null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
 </body>
 </html>

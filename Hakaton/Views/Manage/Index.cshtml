@@ -31,7 +31,7 @@
             <div class="profile-menu">
                 <p>Подробнее <a href="#26"><span class="entypo-down-open scnd-font-color"></span></a></p>
                 <div class="profile-picture small-profile-picture">
-                    <img width="40px"  alt="Anne Hathaway picture" src="@imageProfile" />
+                    <img width="40px" src="@imageProfile" />
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
 
         <!-- MIDDLE-CONTAINER -->
         <div class="middle-container container">
-            
+
             <div class="profile block">
                 <!-- PROFILE (MIDDLE-CONTAINER) -->
                 <h1 class="user-name">
@@ -107,4 +107,34 @@
 
         </div> <!-- end right-container -->
     </div> <!-- end main-container -->
+    <table>
+        <thead>
+            <tr>
+                <th>Услуга</th>
+                <th>Краткое описание</th>
+                <th>Желаемая стоимость</th>
+                <th>Сроки</th>
+                <th>Место оказания услуги</th>
+                <th>Откликнулся</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ServiceCustomerExecutor user in ViewBag.Users)
+            {
+                <tr>
+                    <td>@user.Title</td>
+                    <td>@user.Description</td>
+                    <td>@user.HaveCostStart - @user.HaveCost</td>
+                    <td>@user.Period</td>
+                    <td>@user.Position</td>
+                    <td>
+                        @if (user.ExecutorId != null)
+                        {@Html.ActionLink(user.AspNetUsers1.Email.ToString(), "User", "Account", new { userId = user.ExecutorId.ToString() }, null)
+                    }
+                                    </td>
+                    <td></td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </body>

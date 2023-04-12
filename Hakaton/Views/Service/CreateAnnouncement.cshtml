@@ -1,7 +1,9 @@
 ﻿@model Hakaton.Models.AddServiceCustomerExecutor
 
 @{
-    Layout = null;
+    
+    ViewBag.Title = "Запрос на оказание услуг";
+    @Styles.Render("~/Content/createAnnouncement.css")
 }
 
 <!DOCTYPE html>
@@ -9,76 +11,68 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>CreateAnnouncement</title>
+    <title>Запрос на оказание услуг</title>
 </head>
-<body>
-    @using (Html.BeginForm()) 
-    {
-        @Html.AntiForgeryToken()
-        
-        <div class="form-horizontal">
-            <h4>AddServiceCustomerExecutor</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            
-            <div class="form-group">
-                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+<body class="align">
+    <div class="grid">
+        <div class="registration-container">
+            <h1 class="registration-text">Заявка на услугу</h1>
+        </div>
+        <form id="HUI" >
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form__field">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { placeholder = "Введите почту", @class = "form__input", required = "required" } })
+                        </div>
+                    </div>
+
+
+                    <div class="form__field">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { placeholder = "Введите описание", @class = "form__input" } })
+                        </div>
+                    </div>
+
+                    <div class="form__field">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.HaveCostStart, new { htmlAttributes = new { placeholder = "Введите стоимость", @class = "form__input" } })
+                        </div>
+                    </div>
+
+                    <div class="form__field">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.HaveCost, new { htmlAttributes = new { placeholder = "Введите стоимость", @class = "form__input" } })
+                        </div>
+                    </div>
+
+                    <div class="form__field">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Period, new { htmlAttributes = new { placeholder = "Введите срок в строку", @class = "form__input" } })
+                        </div>
+                    </div>
+
+                    <div class="form__field">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Position, new { htmlAttributes = new { placeholder = "Введите место услуги", @class = "form__input" } })
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.HaveCostStart, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.HaveCostStart, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HaveCostStart, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.HaveCost, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.HaveCost, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HaveCost, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Period, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Period, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Period, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Position, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
+            }
+
+        </form>
+        <div class="form__field">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Создать" class="btn" />
             </div>
         </div>
-    }
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
     </div>
 </body>
 </html>

@@ -103,6 +103,7 @@ namespace Hakaton.Controllers
                 : message == ManageMessageId.ChangeInfoSuccess ? "Информация успешно обновлена"
                 : message == ManageMessageId.FileIsNull ? "Выберите файл"
                 : "";
+            ViewBag.Users = db_a9744d_needfavorEntities.GetContext().ServiceCustomerExecutor;
             
             var userId = User.Identity.GetUserId();
             var roles = await UserManager.GetRolesAsync(userId);
@@ -124,9 +125,9 @@ namespace Hakaton.Controllers
                 Phone = await UserManager.GetPhoneNumberAsync(userId),
                 ShortInfo = userDB.ShortInfo ?? "Не задано",
                 FirstName = userDB.FirstName ?? "Не задано", 
-                LastName = userDB.LastName ?? "Не задано",
+                LastName = userDB.LastName ?? " ",
                 
-                Patronomyc = userDB.Patronomyc ?? "Не задано",
+                Patronomyc = userDB.Patronomyc ?? " ",
                 Email = await UserManager.GetEmailAsync(userId),
                 HasPassword = HasPassword(),
                 

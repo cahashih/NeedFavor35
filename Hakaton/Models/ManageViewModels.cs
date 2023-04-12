@@ -32,6 +32,7 @@ namespace Hakaton.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Patronomyc { get; set; }
+        public string Email { get; set; }
     }
 
 

@@ -235,8 +235,10 @@
       <DependentUpon>NeedFavor.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>NeedFavor.tt</DependentUpon>
     </Compile>
@@ -258,6 +260,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ServiceViewModel.cs" />
     <Compile Include="NeedFavor.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -301,30 +304,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\about.css" />
+    <Content Include="Content\akno.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\contacts.css" />
     <Content Include="Content\enter.css" />
     <Content Include="Content\err404.css" />
-    <Content Include="Content\preenter.css" />
+    <Content Include="Content\profile.css" />
     <Content Include="Content\recpass.css" />
     <Content Include="Content\recpassemail.css" />
     <Content Include="Content\reg.css" />
+    <Content Include="Content\regfin.css" />
     <Content Include="Content\style.css" />
-    <Content Include="Content\styleLAST.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="frontend\err404.css" />
-    <Content Include="frontend\err404.html" />
-    <Content Include="frontend\img\bag.svg" />
-    <Content Include="frontend\img\customer-support.png" />
-    <Content Include="frontend\img\logo2.svg" />
-    <Content Include="frontend\img\pngwing.com.png" />
-    <Content Include="frontend\img\sad.jpg" />
-    <Content Include="frontend\index.html" />
-    <Content Include="frontend\script.js" />
-    <Content Include="frontend\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="NeedFavor.Context.tt">
@@ -349,7 +345,14 @@
     <Content Include="Resource\Static\Le-recours-contre-un-permis-de-construire.jpg" />
     <Content Include="Resource\Static\str.png" />
     <Content Include="Resource\Static\stroitel-universal-i.jpg" />
+    <Content Include="Resource\Static\usl1.jpg" />
+    <Content Include="Resource\Static\usl2.jpg" />
+    <Content Include="Resource\Static\usl3.jpg" />
+    <Content Include="Resource\Static\usl4.jpg" />
+    <Content Include="Resource\Static\usl5.jpeg" />
     <Content Include="Resource\Static\Uwd40yYZfRw.jpg" />
+    <Content Include="Scripts\about.js" />
+    <Content Include="Scripts\akno.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="NeedFavor.edmx">
@@ -362,6 +365,7 @@
     <None Include="Properties\PublishProfiles\pivasblazer-001-site1 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\pivasblazer-001-site1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\contacts.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -372,8 +376,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\recpassemail.js" />
+    <Content Include="Scripts\regfin.js" />
     <Content Include="Scripts\script.js" />
-    <Content Include="Scripts\scriptLAST.js" />
+    <Content Include="Scripts\scriptt.js" />
+    <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -383,7 +390,8 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -411,6 +419,7 @@
     <Content Include="Views\Account\DisplayEmail.cshtml" />
     <Content Include="Views\Manage\ChangeProfileInfo.cshtml" />
     <Content Include="Views\Account\ViewUser.cshtml" />
+    <Content Include="Views\Service\GetItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

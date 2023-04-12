@@ -1,7 +1,16 @@
-﻿@{
-    ViewBag.Title = "Завершение регистрации";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="regfin.css">
+</head>
+<body>
+    <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+    <button class="bubbly-button">@Html.ActionLink("Вернуться к авторизации", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</button>
+    <script src="regfin.js"></script>
 
-<h2>@ViewBag.Title</h2>
-
-<p>На указанный электронный адрес отправлены дальнейшие инструкции по завершению регистрации</p>
+</body>
+</html>

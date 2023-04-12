@@ -9,48 +9,24 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
+
 <body>
     <header>
         <nav>
             <ul>
                 <li>@Html.ActionLink("Услуги", "Index", "Home")</li>
                 <li>@Html.ActionLink("О нас", "About", "Home")</li>
-                <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
-                <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
-                <li><img onclick="msg()" src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/menu.png" draggable="false" alt=""></li>
-            </ul>
-            <div >
+                <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                <li>@Html.ActionLink("FAQ", "Contact", "Home")</li>
+
                 @Html.Partial("_LoginPartial")
-            </div>
+            </ul>
             <div>
-                <a href="@Url.Action("")">
-                    <img src="@Url.Content("~/Resource/Static/123.png")" />
-                </a>
+                <img src="@Url.Content("~/Resource/Static/123.png")" draggable="false" alt="">
             </div>
         </nav>
+        
     </header>
-    @*
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="Дополнительные параметры">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Информация", "About", "Home")</li>
-                        <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
-            </div>
-        </div>
-    *@
     <div>
         @RenderBody()
 

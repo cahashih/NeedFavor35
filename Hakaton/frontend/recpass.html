@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="recpass.css">
+    <link rel="stylesheet" href="fontawesome.min.css">
+
+</head>
+
+    <body class="align">
+
+        <div class="grid">
+
+            <div class="registration-container">
+                <h1 class="registration-text">Восстановление пароля</h1>
+                
+              </div>
+      
+          <form action="https://httpbin.org/post" method="POST" class="form login">
+            
+      
+            <div class="form__field">
+              <label for="login__email"><svg class="icon">
+                  <use xlink:href="#icon-email"></use>
+                </svg><span class="hidden">Почта</span></label>
+              <input autocomplete="email" id="login__email" type="email" name="email" class="form__input" placeholder="Введите почту, указанную при регистрации" required>
+            </div>
+
+            
+      
+            <div class="form__field">
+              <input type="submit" value="Отправить письмо">
+            </div>
+      
+          </form>
+      
+          <p class="text--center">Передумали? <br><a href="#">Вернуться к авторизации</a> <svg class="icon">
+              <use xlink:href="#icon-arrow-right"></use>
+            </svg></p>
+      
+        </div>
+      
+        <svg xmlns="http://www.w3.org/2000/svg" class="icons">
+          <symbol id="icon-arrow-right" viewBox="0 0 1792 1792">
+            <path d="M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293H245q-52 0-84.5-37.5T128 1024V896q0-53 32.5-90.5T245 768h704L656 474q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z" />
+          </symbol>
+          <symbol id="icon-lock" viewBox="0 0 1792 1792">
+            <path d="M640 768h512V576q0-106-75-181t-181-75-181 75-75 181v192zm832 96v576q0 40-28 68t-68 28H416q-40 0-68-28t-28-68V864q0-40 28-68t68-28h32V576q0-184 132-316t316-132 316 132 132 316v192h32q40 0 68 28t28 68z" />
+          </symbol>
+          <symbol id="icon-email" viewBox="0 0 1920 1920">
+            <path d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z" />
+          </symbol>
+        </svg>
+
+
+      </body>
+
+</html>

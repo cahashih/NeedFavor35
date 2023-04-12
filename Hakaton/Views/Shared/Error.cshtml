@@ -1,0 +1,63 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="err404.css">
+</head>
+<html>
+
+<head>
+    <title>wave.ac - 404</title>
+    <link href="error404.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <meta property="og:site_name" content="NeedFavor" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<script>
+    var textToShow = [
+        "Ты дошёл до предела",
+        "Ух ты, ты упал слишком глубоко!",
+        "Эй, осторожнее, смотри под ноги",
+        "Хорошая игра, Друг",
+        "Ха-ха... Мы знаем об этом, Друг",
+        "Это наименьшее из того, что нас беспокоит.",
+        "Аккуратнее, отсюда можно и не вернуться.",
+        "Некоторые оставались здесь навсегда.."
+    ];
+    $(document).ready(function () {
+        $("#rand-quote").html(
+            textToShow[Math.floor(Math.random() * textToShow.length)]
+        );
+    });
+</script>
+
+<div id="bubbles"></div>
+
+<body>
+    <div id="app-mount">
+        <div id="text-section">
+            <p id="info">Страница не найдена</p>
+            <p id="error">404</p>
+        </div>
+
+        <div id="links">
+            <p id="rand-quote"></p>
+        </div>
+
+        <a id="back-to-safety" href="index.html"><img src="https://cdn.discordapp.com/attachments/217459438452211722/367088105452339202/if_home_216242.png" draggable="false" id="home-ico" />Вернуться домой</a>
+    </div>
+
+    <div id="logo-wrap">
+        <p id="logo">NeedFavor</p>
+    </div>
+</body>
+
+</html>
+</html>

@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Cousine');
+
+* { box-sizing: border-box; }
+
+/*Challenge colours*/
+:root {
+  --black: #000;
+  --pink: #FFF;
+  --white: #fff;
+}
+
+::-moz-selection  {
+  background: var(--pink);
+  color: #000;
+}
+
+::selection {
+  background: var(--pink);
+  color: #000;
+}
+
+body {
+  align-items: center;
+  background: var(--pink);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: Cousine, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.title h1 {
+  font-size: 1.75rem;
+  margin: 1.8em;
+}
+
+.container {
+  background: #FFF;
+  box-shadow: 0px 10px 50px 5px #f9b17a;
+  display: flex;
+  height: 28rem;
+  text-align: left;
+  width: 50rem;
+}
+
+#map {
+  /*Replace background with your own map or use JS in this pen*/
+  height: 100%;
+  width: 50%;
+}
+
+.container__content {
+  color: #000;
+  margin: 2em 3em;
+  padding: .5rem;
+}
+
+.content__social {
+  align-content: flex-end;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+
+.content__social svg {
+  margin-left: .95rem;
+}
+
+.container__content hr {
+  background-color: #000;
+  border: 0 none;
+  color: #000;
+  height: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.container__content h1 { font-size: 1.5rem; }
+
+.content__icon { position: relative; }
+
+.content__icon1 { top: -2.25rem; }
+
+.content__icon2 { top: -2.25rem; }
+
+.content__icon3 { top: .75rem; }
+
+.content__address, 
+.content__web, 
+.content__phone, 
+.container__content span {
+  display: inline-block;
+  font: .9rem/1.25 Cousine, monospace;
+  padding-left: 0.5em;
+  transition: color 0.5s;
+  
+}
+
+.content__address:hover, 
+.content__web:hover, 
+.content__phone:hover, 
+.container__content span:hover {
+    color: #000;
+  } 
+
+.credits {
+  font-size: 0.8rem;
+  margin: 50px;
+  text-align: center;
+}
+
+.credits a {
+  color: #000;
+  text-decoration: none;
+}
+
+.credits a:hover {
+  text-decoration: underline;
+}

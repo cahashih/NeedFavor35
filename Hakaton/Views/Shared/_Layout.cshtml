@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeedFavor35</title>
+    @Styles.Render("~/Content/style.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body>
+    <header id="headmainmain">
+        <nav>
+            <ul>
+                <li>@Html.ActionLink("Услуги", "Index", "Home")</li>
+                <li>@Html.ActionLink("О нас", "About", "Home")</li>
+                <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                <li>@Html.ActionLink("FAQ", "Contact", "Home")</li>
+
+                @Html.Partial("_LoginPartial")
+            </ul>
+            <div>
+                <img src="@Url.Content("~/Resource/Static/123.png")" draggable="false" alt="">
+            </div>
+        </nav>
+        
+    </header>
+    <div>
+        @RenderBody()
+
+
+    </div>
+    @*
+        <footer>
+            <p>&copy; @DateTime.Now.Year - SHURHUNCHIKI - Все права защищены</p>
+        </footer>
+    *@
+    @Scripts.Render("~/Scripts/script.js")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

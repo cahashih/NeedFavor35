@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Hakaton.Models.CategoryServiceViewModel>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Clickable List View</title>
+</head>
+<body>
+    <ul>
+        @foreach (var item in ViewBag.States)
+        {
+            <li>
+                @Html.ActionLink( "Sam", "Details", "Service", new { id = item.CategoryServiceId })
+            </li>
+        }
+    </ul>
+</body>
+</html>

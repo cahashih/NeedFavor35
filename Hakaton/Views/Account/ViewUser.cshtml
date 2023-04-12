@@ -1,0 +1,111 @@
+﻿@model Hakaton.Models.IndexViewModel
+@{
+    ViewBag.Title = Model.Email;
+    var imageProfile = @Url.Content(Model.PhotoProfilePath);
+
+
+}
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+
+<body>
+    @Styles.Render("~/Content/profile.css");
+    <div class="main-container">
+
+        <!-- HEADER -->
+        <header class="block">
+            <ul class="header-menu horizontal-list">
+                <li>
+                    <a class="header-menu-tab" href="#1"><span class="icon entypo-cog scnd-font-color"></span>Настройки</a>
+                </li>
+                <li>
+                    <a class="header-menu-tab" href="#2"><span class="icon fontawesome-user scnd-font-color"></span>Аккаунт</a>
+                </li>
+                <li>
+                    <a class="header-menu-tab" href="#3"><span class="icon fontawesome-envelope scnd-font-color"></span>Сообщения</a>
+                    <a class="header-menu-number" href="#4">5</a>
+                </li>
+                <li>
+                    <a class="header-menu-tab" href="#5"><span class="icon fontawesome-star-empty scnd-font-color"></span>Заявки</a>
+                </li>
+            </ul>
+            <div class="profile-menu">
+                <p>Подробнее <a href="#26"><span class="entypo-down-open scnd-font-color"></span></a></p>
+                <div class="profile-picture small-profile-picture">
+                    <img width="40px" alt="Anne Hathaway picture" src="@imageProfile" />
+                </div>
+            </div>
+
+        </header>
+
+        <!-- LEFT-CONTAINER -->
+        <div class="left-container container">
+
+            <div class="menu-box block">
+                <!-- MENU BOX (LEFT-CONTAINER) -->
+                <h2 class="titular">Меню</h2>
+                <ul class="menu-box-menu">
+                    <li>
+                        <a class="menu-box-tab" href="#6"><span class="icon fontawesome-envelope scnd-font-color"></span>Сообщения<div class="menu-box-number">24</div></a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="#10"><span class="icon entypo-calendar scnd-font-color"></span>Заявки<div class="menu-box-number">5</div></a>
+                    </li>
+                    <li>
+                        <a class="menu-box-tab" href="/Manage/ChangeProfileInfo"><span class="icon entypo-cog scnd-font-color"></span>Настройки аккаунта</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+        </div>
+
+        <!-- MIDDLE-CONTAINER -->
+        <div class="middle-container container">
+
+            <div class="profile block">
+                <!-- PROFILE (MIDDLE-CONTAINER) -->
+                <h1 class="user-name">
+                    Изменение параметров учетной записи @if (Model.Role == "Customer")
+                    {@("исполнителя")}
+                    else
+                    {@("заказчика")
+                    }
+                </h1>
+                <div class="profile-picture big-profile-picture clear">
+                    <img width="150px" height="150px" alt="Anne Hathaway picture" src="@imageProfile" />
+
+
+                </div>
+                <h2 class="user-name">@Model.Email</h2>
+                <h1 class="user-name">@Model.FirstName  @Model.LastName @Model.Patronomyc</h1>
+                <div class="profile-description">
+                    <p class="scnd-font-color">@Model.ShortInfo</p>
+                </div>
+                <ul class="profile-options horizontal-list">
+                </ul>
+            </div>
+
+
+
+        </div>
+
+        <!-- RIGHT-CONTAINER -->
+        <div class="right-container container">
+            <div class="join-newsletter block">
+                <!-- JOIN NEWSLETTER (RIGHT-CONTAINER) -->
+                <h2 class="titular">Изменить фото</h2>
+                <img alt="Anne Hathaway picture" style="width:100px; height:100px" src="@imageProfile" />
+                <h3>Выберите файл для загрузки</h3>
+                @using (Html.BeginForm("UploadImageProfile", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <input type="file" name="upload" /><br>
+                    <input type="submit" value="Загрузить" />
+                }
+                <a class="subscribe button" href="#21">Подписаться</a>
+            </div>
+
+        </div> <!-- end right-container -->
+    </div> <!-- end main-container -->
+</body>

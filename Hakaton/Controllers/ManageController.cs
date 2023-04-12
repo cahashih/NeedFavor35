@@ -78,7 +78,7 @@ namespace Hakaton.Controllers
             
             var userId = User.Identity.GetUserId();
             var roles = await UserManager.GetRolesAsync(userId);
-            var userDB = await db_a9744d_needfavorEntities.GetContext().AspNetUsers.FirstOrDefaultAsync(u => u.Id == userId);
+            var userDB = db_a9744d_needfavorEntities.GetContext().AspNetUsers.FirstOrDefault(u => u.Id == userId);
             string UserPhotoProfilePath = null;
             if (userDB.PhotoProfilePath == null)
             {
@@ -192,6 +192,7 @@ namespace Hakaton.Controllers
             userDB.FirstName = model.FirstName ?? "";
             userDB.LastName = model.LastName ?? "";
             userDB.Patronomyc = model.Patronomyc ?? "";
+            await db_a9744d_needfavorEntities.GetContext().SaveChangesAsync();
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user != null)
             {

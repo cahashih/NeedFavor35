@@ -3,146 +3,285 @@
 
 }
 @Styles.Render("~/Content/style.css")
+
 <body>
     <header>
+        
         <div class="container-div-prt">
             <div class="prt st">
-                <img src="@Url.Content("~/Resource/Static/asd.png")" draggable="false" alt="">
+                <img src="img/main.svg" draggable="false" alt="">
             </div>
             <div class="prt sd">
                 <div class="ris">
                     <h1>
-                        <span>Выбери </span><br> любую <br> услугу <br> в любой сфере
+                        Выбери<br> любую <br> услугу <br> в <span>любой</span> сфере
                     </h1>
                     <button class="btn"><img class="icon2" src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/icon2.png" alt=""> Услуги</button>
                 </div>
             </div>
         </div>
     </header>
-        <section class="about">
-            <div class="div fir">
-                <h2>Мы компания NeedFavor35</h2>
-                <p>Мы предлагаем платформу, для выбора услуг для исполнителей и заказчиков. Услуги ог. КОроче дописать потом</p>
-                <button class="btn"><img src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/icon1.png" class="icon1" alt="">Как это работает</button>
-                <img src="./images/shapes.png" alt="">
-            </div>
-            <div class="div sec">
-                <img style="width:100%; height: 100%;" src="@Url.Content("~/Resource/Static/Le-recours-contre-un-permis-de-construire.jpg")" alt="">
-            </div>
-        </section>
 
-        <section class="features">
-            <div class="ftr">
-                <h3>Примеры услуг</h3>
-                <h2>Сварщик епта</h2>
-                <h3 style="font-weight: 300;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, cumque!<br /> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, cumque!</h3>
-            </div>
-            <div class="worker">
-                <img src="@Url.Content("~/Resource/Static/7lAjP58Sjl4.jpg")" draggable="false" alt="">
-            </div>
-        </section>
+    <!-- sections -->
+    <section class="about">
+        <div class="div fir">
+            <button class="btn">Как это работает</button>
+            <div class="about-row">
+                <div class="window-one row-style">
+                    <label class="rad-label">
+                        <input type="radio" class="rad-input" name="rad" checked>
+                        <div class="rad-design"></div>
+                        <div class="rad-text">Установить окно</div>
+                    </label>
 
-        <section class="features">
-            <div class="ftr">
-                <h3>Что-то еще</h3>
-                <h2>Что-то тут тоже</h2>
-                <h3 style="font-weight: 300;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, cumque!<br />Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, cumque!</h3>
-            </div>
-            <div class="worker">
-                <img src="@Url.Content("~/Resource/Static/AdobeStock_55881857-e1498621656639.jpeg")" draggable="false" alt="">
-            </div>
-        </section>
+                    <label class="rad-label">
+                        <input type="radio" class="rad-input" name="rad">
+                        <div class="rad-design"></div>
+                        <div class="rad-text">Починить проводку</div>
+                    </label>
 
-        <section class="why">
-            <div class="container-div-why">
-                <div class="dr">
-                    <div class="tw">
-                        <h3>Почему мы?</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, cumque!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, cumque!</p>
-                        <button class="btn"><img src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/icon2.png" class="icon2" alt=""> Услуги</button>
-                    </div>
+                    <label class="rad-label">
+                        <input type="radio" class="rad-input" name="rad">
+                        <div class="rad-design"></div>
+                        <div class="rad-text">Убрать квартиру</div>
+                    </label>
                 </div>
-                <div class="dr">
-                    <figure class="tw">
-                        <img src="@Url.Content("~/Resource/Static/stroitel-universal-i.jpg")" draggable="false" alt="">
-                    </figure>
+
+
+                <div class="window-one row-style">
+                    <img src="img/person.svg">
+                    <span>Добрый день! Хочу у вас сделать заказ</span>
+                </div>
+                <div class="window-one row-style">
+                    <img src="img/star.svg">
+                    <span>Поставьте оценку</span>
                 </div>
             </div>
-        </section>
+            <div class="window-text">
+                <div class="text-one">
+                    <span>Выбери услуг и посмотри рейтинг профессионалов доступных в твоем городе</span>
+                </div>
 
-        <section class="cover">
-            <div>
-                <img title="Play" src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/play.png" alt="">
-                <h4>Как работает наш сервис ?</h4>
+                <div class="text-two">
+                    <span>Опиши мастеру свою проблему или подай свое собственное объявление</span>
+                </div>
+
+                <div class="text-three">
+                    <span>После того как заказ будет выполнен - оставь отзыв мастеру<br>Будь вежлив, последователен и пунктуальным - тогда мастер тоже оставит тебе положительным отзыв</span>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <section class="cta">
-            <div class="cont-btn">
-                <span>Начни сейчас</span>
-                <div class="container" id="container">
-                    <div class="form-container sign-up-container">
-                        <form>
-                            <h1>Создать аккаунт</h1>
-                            <button class="button-form">@Html.ActionLink("Создать", "Register", "Account")</button>
-                        </form>
+    </section>
+
+
+    <section class="slider-sec">
+        <div class="slider">
+            <div class="arrows">
+                <a href="#" title="Previous" class="arrow slider-link prev"></a>
+                <a href="#" title="Next" class="arrow slider-link next"></a>
+            </div>
+            <div class="slider-wrapper flex">
+                <div class="slide flex">
+
+                    <div class="slide-image slider-link prev"><img src="@Url.Content("~/Resource/Static/usl1.jpg")"><div class="overlay"></div></div>
+                    <div class="slide-more"><button class="btn btn-slider"><a href="indexLAST.html">Заказать услугу</a></button></div>
+                </div>
+                <div class="slide flex">
+                    <div class="slide-image slider-link prev"><img src="@Url.Content("~/Resource/Static/usl2.jpg")"><div class="overlay"></div></div>
+                    <div class="slide-more"><button class="btn btn-slider"><a href="indexLAST.html">Заказать услугу</a></button></div>
+                </div>
+                <div class="slide flex">
+                    <div class="slide-image slider-link prev"><img src="@Url.Content("~/Resource/Static/usl3.jpg")"><div class="overlay"></div></div>
+                    <div class="slide-more"><button class="btn btn-slider"><a href="indexLAST.html">Заказать услугу</a></button></div>
+                </div>
+                <div class="slide flex">
+                    <div class="slide-image slider-link prev"><img src="@Url.Content("~/Resource/Static/usl4.jpg")"><div class="overlay"></div></div>
+                    <div class="slide-more"><button class="btn btn-slider"><a href="indexLAST.html">Заказать услугу</a></button></div>
+                </div>
+                <div class="slide flex">
+                    <div class="slide-image slider-link prev"><img src="@Url.Content("~/Resource/Static/usl5.jpeg")"><div class="overlay"></div></div>
+                    <div class="slide-more"><button class="btn btn-slider"><a href="indexLAST.html">Заказать услугу</a></button></div>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </section>
+
+
+    <section class="master">
+        <div class="master-row">
+
+            <div class="master-card">
+                <div class="l-card">
+                    <div class="l-card__text">
+                        <p>
+                            От вас на 300м. Куплю пива. Недорого
+                        </p>
                     </div>
-                    <div class="form-container sign-in-container">
-                        <form >
-                            <h1>Войти в аккаунт</h1>
-                            <button class="button-form">@Html.ActionLink("Войти", "Login", "Account")</button>
-                        </form>
-                    </div>
-                    <div class="overlay-container">
-                        <div class="overlay">
-                            <div class="overlay-panel overlay-left">
-                                <h1>С возвращением!</h1>
-                                <button class="ghost" class="button-form" id="signIn">Войти</button>
-                            </div>
-                            <div class="overlay-panel overlay-right">
-                                <h1>Создать аккаунт</h1>
-                                <button class="ghost" class="button-form" id="signUp">Создать</button>
-                            </div>
+                    <div class="l-card__user">
+                        <div class="l-card__userImage">
+                            <img src="https://avatars.githubusercontent.com/u/20525486?v=4" alt="Naruto">
+                        </div>
+                        <div class="l-card__userInfo">
+                            <span>Ольга</span>
+                            <span>Гуру</span>
                         </div>
                     </div>
                 </div>
 
-            </div>
-            <div class="cont-post">
-            </div>
-        </section>
-
-        <footer>
-            <div class="ftr-container">
-                <div class="fdb">
-                    <img class="logo" src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/band.png" alt="">
-                    <div>
-                        <img src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/dribbble.png" alt="">
-                        <img src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/Instagram.png" alt="">
-                        <img src="https://raw.githubusercontent.com/arbiprog/casecraft/main/images/Twitter.png" alt="">
+                <div class="l-card">
+                    <div class="l-card__text">
+                        <p>
+                            Здравствуйте! Меня зовут Оксана. Оказываю услуги по чистке, уборке, мытью окон и балконов. Приведу в порядок ваш офис, квартиру, дом, склад, магазин . После уборки вы останетесь до...
+                        </p>
+                    </div>
+                    <div class="l-card__user">
+                        <div class="l-card__userImage">
+                            <img src="https://avatars.githubusercontent.com/u/20525486?v=4" alt="Naruto">
+                        </div>
+                        <div class="l-card__userInfo">
+                            <span>Оксана</span>
+                            <span>Эксперт</span>
+                        </div>
                     </div>
                 </div>
 
-                <div>
-                    <h2>Услуги</h2>
-                    <h5>Раз</h5>
-                    <h5>Два</h5>
-                    <h5>Три</h5>
-                    <h5>Четыре</h5>
-                    <h5>Пять</h5>
-                </div>
 
-                <div>
-                    <h2>О нас</h2>
-                    <h5>Раз</h5>
-                    <h5>Два</h5>
-                    <h5>Три</h5>
-                </div>
 
-                <div>
-                    <h2>Контакты</h2>
-                    <h5>Компания</h5>
+                <div class="master-card">
+                    <div class="l-card">
+                        <div class="l-card__text">
+                            <p>
+                                Уборка квартир и мойка окон профессиональным оборудованием и моющими средствами.
+                            </p>
+                        </div>
+                        <div class="l-card__user">
+                            <div class="l-card__userImage">
+                                <img src="https://avatars.githubusercontent.com/u/20525486?v=4" alt="Naruto">
+                            </div>
+                            <div class="l-card__userInfo">
+                                <span>Саня</span>
+                                <span>Начинающий</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </footer>
+    </section>
+    <section class="start">
+        <div class="container-div-start">
+
+        </div>
+    </section>
+
+    <section class="cover">
+        <div>
+            <h4>Как работает наш сервис ?</h4>
+            <p>
+                Для использования сервиса пользователи могут зарегистрироваться, создать профиль и опубликовать задание.
+                В своем объявлении они могут описать требования к работе, указать бюджет, время выполнения и другие детали.
+                После публикации задания, специалисты могут откликнуться на него, предложив свои услуги.
+            </p>
+            <p>
+                Наш сервис предлагает широкий выбор категорий услуг, включая например:
+                ремонт и строительство, курьерские услуги, услуги красоты и здоровья, образование и многое другое.
+                Мы также предоставляем возможность пользователям оценивать работу специалистов, что позволяет повысить качество их услуг.
+            </p>
+        </div>
+    </section>
+
+    <section class="start">
+
+        <div class="form-start">
+            <div class="start-container">
+                <div class="start-text">
+                    <h1>Начни сейчас</h1>
+                </div>
+
+                <div class="start-button">
+                    <button>@Html.ActionLink("Войти", "Login", "Account")</button>
+                    <button>@Html.ActionLink("Начать", "Register", "Account")</button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h2>О нас</h2>
+                <p>Мы компания, предоставляющая услуги по поиску и подбору квалифицированного персонала.</p>
+            </div>
+            <div class="footer-section">
+                <h2>Услуги</h2>
+                <ul>
+                    <li>Подбор персонала</li>
+                    <li>Оценка персонала</li>
+                    <li>Заявки на услуги</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h2>Контакты</h2>
+                <ul>
+                    <li>Телефон: 8 (951) 735-75-75</li>
+                    <li>Email: needfavor35@gmail.com</li>
+                    <li>Адрес: Вологда, ул. Первомайская, д. 42</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="logo">
+                <img src="img/123.png" alt="">
+            </div>
+        </div>
+    </footer>
+
+
+    @Scripts.Render("~/Scripts/scriptt.js")
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin="anonymous"></script>
+    <script>
+        SmoothScroll({
+            // Время скролла 400 = 0.4 секунды
+            animationTime: 800,
+            // Размер шага в пикселях
+            stepSize: 75,
+
+            // Дополнительные настройки:
+
+            // Ускорение
+            accelerationDelta: 30,
+            // Максимальное ускорение
+            accelerationMax: 2,
+
+            // Поддержка клавиатуры
+            keyboardSupport: true,
+            // Шаг скролла стрелками на клавиатуре в пикселях
+            arrowScroll: 50,
+
+            // Pulse (less tweakable)
+            // ratio of "tail" to "acceleration"
+            pulseAlgorithm: true,
+            pulseScale: 4,
+            pulseNormalize: 1,
+
+            // Поддержка тачпада
+            touchpadSupport: true,
+        })</script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
+    <script src="./script.js"></script>
 </body>
+</html>

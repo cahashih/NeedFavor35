@@ -38,14 +38,14 @@
         </header>
 
         <!-- LEFT-CONTAINER -->
-        <div class="left-container container">
+        <div class="left-container container container1">
 
             <div class="menu-box block">
                 <!-- MENU BOX (LEFT-CONTAINER) -->
                 <h2 class="titular">Меню</h2>
                 <ul class="menu-box-menu">
                     <li>
-                        <a class="menu-box-tab" href="/Service/CreateAnnouncement"><span class="icon fontawesome-envelope scnd-font-color"></span>Сообщения<div class="menu-box-number">24</div></a>
+                        <a class="menu-box-tab" href="#6"><span class="icon fontawesome-envelope scnd-font-color"></span>Сообщения<div class="menu-box-number">24</div></a>
                     </li>
                     <li>
                         <a class="menu-box-tab" href="#10"><span class="icon entypo-calendar scnd-font-color"></span>Заявки<div class="menu-box-number">5</div></a>
@@ -61,8 +61,8 @@
         </div>
 
         <!-- MIDDLE-CONTAINER -->
-        <div class="middle-container container">
-
+        <div class="middle-container container container1">
+            
             <div class="profile block">
                 <!-- PROFILE (MIDDLE-CONTAINER) -->
                 <h1 class="user-name">
@@ -73,7 +73,7 @@
                     }
                 </h1>
                 <div class="profile-picture big-profile-picture clear">
-                    <img width="150px" height="150px" alt="Anne Hathaway picture" src="@imageProfile" />
+                    <img width="150px" height="150px" alt="Фото" src="@imageProfile" />
 
 
                 </div>
@@ -91,16 +91,18 @@
         </div>
 
         <!-- RIGHT-CONTAINER -->
-        <div class="right-container container">
+        <div class="right-container container container1">
             <div class="join-newsletter block">
                 <!-- JOIN NEWSLETTER (RIGHT-CONTAINER) -->
                 <h2 class="titular">Изменить фото</h2>
-                <img alt="Anne Hathaway picture" style="width:100px; margin-left:100px; height:100px" src="@imageProfile" />
+                <img alt="Фото" style="width:100px; margin-left:100px; height:100px" src="@imageProfile" />
                 <h3>Выберите файл для загрузки</h3>
-                @using (Html.BeginForm("UploadImageProfile", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                @using (Html.BeginForm("UploadImageProfile", "Manage", FormMethod.Post, new { id="formprofile", enctype = "multipart/form-data" }))
                 {
-                    <input type="file" name="upload" /><br>
-                    <input type="submit" value="Загрузить" />
+                    <label class="input-file"><input type="file" name="upload" id="zagruzit1"/><br>
+                    <span>Выберите файл</span>
+                    </label>
+                    <input type="submit" id="zagruzit" value="Загрузить" />
                 }
                 <a class="subscribe button" href="#21">Подписаться</a>
             </div>

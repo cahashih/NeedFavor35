@@ -11,7 +11,7 @@
         <div class="registration-container">
             <h1 class="registration-text">Вход</h1>
         </div>
-        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form login", role = "form" }))
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new {id ="form-login", @class = "form login", role = "form" }))
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -24,7 +24,9 @@
                 </label>
 
                 @Html.TextBoxFor(m => m.Email, new { @autocomplete = "email", @id = "login__email", @type = "email", @name = "email", @class = "form__input", placeholder = "Введите почту" })
-                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                
+            </div>
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
             </div>
             <div class="form__field">
 
@@ -35,14 +37,20 @@
                 </label>
 
                 @Html.PasswordFor(m => m.Password, new { @id = "login__password", @type = "password", @name = "password", @class = "form__input", placeholder = "Введите пароль" })
-                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                
+            </div>
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
             </div>
             @Html.ActionLink("Забыли пароль?", "ForgotPassword", new { @class = "rec-password" })
-            <div class="form__field">
-                <div class="login__email">
-                    <div class="checkbox">
+                                <div class="checkbox" id="acczak">
                         @Html.LabelFor(m => m.RememberMe)
-                        @Html.CheckBoxFor(m => m.RememberMe)
+                        <label id="labelcheck">
+                        @Html.CheckBoxFor(m => m.RememberMe, new {@class = "option-input checkbox"})
+                        </label>
+                        
+                    
+                        
+                    
 
                     </div>
                 </div>

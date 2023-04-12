@@ -24,6 +24,8 @@ namespace Hakaton
             this.ServiceCustomerExecutor = new HashSet<ServiceCustomerExecutor>();
             this.ServiceCustomerExecutor1 = new HashSet<ServiceCustomerExecutor>();
             this.AspNetRoles = new HashSet<AspNetRoles>();
+            this.AnnouncementService = new HashSet<AnnouncementService>();
+            this.ExecutionService = new HashSet<ExecutionService>();
         }
     
         public string Id { get; set; }

@@ -2,6 +2,7 @@
     ViewBag.Title = "Главная страница";
 
 }
+@Scripts.Render("~/Scripts/jquery-2.2.4.min.js")
 @Styles.Render("~/Content/style.css")
 
 <body>
@@ -9,7 +10,7 @@
         
         <div class="container-div-prt">
             <div class="prt st">
-                <img src="img/main.svg" draggable="false" alt="">
+                <img src="@Url.Content("~/Resource/Static/main.svg")" draggable="false" alt="">
             </div>
             <div class="prt sd">
                 <div class="ris">
@@ -49,11 +50,11 @@
 
 
                 <div class="window-one row-style">
-                    <img src="img/person.svg">
+                    <img src="@Url.Content("~/Resource/Static/person.svg")">
                     <span>Добрый день! Хочу у вас сделать заказ</span>
                 </div>
                 <div class="window-one row-style">
-                    <img src="img/star.svg">
+                    <img src="@Url.Content("~/Resource/Static/star.svg")">
                     <span>Поставьте оценку</span>
                 </div>
             </div>
@@ -103,6 +104,7 @@
                     <div class="slide-image slider-link prev"><img src="@Url.Content("~/Resource/Static/usl5.jpeg")"><div class="overlay"></div></div>
                     <div class="slide-more"><button class="btn btn-slider"><a href="indexLAST.html">Заказать услугу</a></button></div>
                 </div>
+
 
 
 
@@ -251,8 +253,7 @@
 
 
     @Scripts.Render("~/Scripts/scriptt.js")
-    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin="anonymous"></script>
+    @Scripts.Render("~/Scripts/SmoothScroll.min.js")
     <script>
         SmoothScroll({
             // Время скролла 400 = 0.4 секунды
@@ -281,7 +282,6 @@
             // Поддержка тачпада
             touchpadSupport: true,
         })</script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
-    <script src="./script.js"></script>
+    @Scripts.Render("~/Scripts/TweenMax.min.js")
 </body>
 </html>

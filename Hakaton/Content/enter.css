@@ -130,6 +130,7 @@ body {
   /* helpers/align.css */
   
   .align {
+    
     display: grid;
     place-items: center;
   }
@@ -137,7 +138,9 @@ body {
   
   .grid {
     display: flex;
-    padding: 50px;
+    padding: 30px;
+    margin-top: 190px;
+    
     flex-direction: column;
     -webkit-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
     -moz-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
@@ -311,7 +314,7 @@ body {
     justify-content: center;
   }
   
-  .login label,
+  .login label:not(#labelcheck),
   .login input[type="text"],
   .login input[type="password"],
   .login input[type="submit"],
@@ -320,7 +323,7 @@ body {
     padding: 1rem;
   }
   
-  .login label {
+  .login label:not(#labelcheck) {
     background-color: #f8f8f8;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
@@ -424,3 +427,132 @@ body {
   position: relative;
   z-index: 5;
   display: none;}
+
+  #form-login{
+    background: #FFF;
+  }
+
+  #acczak{
+    background-color: #FFF !important;
+    font-size: 15pt;
+    color: #2d3250;
+  }
+
+  #labelcheck{
+    line-height:40px;
+  }
+  .option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 13.33333px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    transition: all 0.15s ease-out 0s;
+    background: #FFF;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+    -webkit-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+    -moz-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+    box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+    border:1px solid rgba(0, 0, 0, 0.096);
+    border-radius: 25px;
+  }
+  .option-input:hover {
+    background: #f1f1f1;
+  }
+  .option-input:checked {
+    background: #f9b17a;
+  }
+  .option-input:checked::before {
+    width: 40px;
+    height: 40px;
+    display:flex;
+    content: '✓';
+    font-size: 25px;
+    font-weight:bold;
+    position: absolute;
+    align-items:center;
+    justify-content:center;
+    font-family:'Font Awesome 5 Free';
+  }
+  .option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #f9b17a;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+    border-radius: 999px;
+  }
+  @keyframes click-wave {
+    0% {
+      height: 40px;
+      width: 40px;
+      opacity: 0.35;
+      position: relative;
+    }
+    100% {
+      height: 200px;
+      width: 200px;
+      margin-left: -80px;
+      margin-top: -80px;
+      opacity: 0;
+    }
+  }
+  
+  .text-danger{
+    color: #ff8e38;
+    
+    
+  }
+  
+  
+  .text-danger ul{
+    margin-top: -250px;
+    -webkit-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+    -moz-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+    box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+    border-radius: 15px;
+  }
+
+  .text-danger ul li{
+    font-size: 9.2pt;
+  }
+
+
+  #acczak label{
+    background-color: #FFF !important;
+    box-shadow: none !important;
+  }
+
+  #acczak{
+    box-shadow: none !important;
+  }
+
+#login__email-error{
+  font-size: 9.2pt;
+}
+
+#login__password-error{
+  font-size: 9.2pt;
+
+}
+
+.text-danger span{
+  margin-top: -20px;
+}

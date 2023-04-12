@@ -7,7 +7,20 @@
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>Изменение параметров учетной записи</h4>
+    <img style="width:100px; height:100px" src="@imageProfile" />
+    <h3>Выберите файл для загрузки</h3>
+    @using (Html.BeginForm("UploadImageProfile", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="upload" /><br>
+        <input type="submit" value="Загрузить" />
+    }
+    <h4>
+        Изменение параметров учетной записи @if (Model.Role == "Customer")
+        {@("исполнителя")}
+        else
+        {@("заказчика")
+        }
+    </h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>Пароль:</dt>

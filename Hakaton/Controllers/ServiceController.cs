@@ -20,7 +20,7 @@ namespace Hakaton.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private static Random random = new Random();
-
+        
         public static string RandomString(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789qwertyuiopasdfghjklzxcvbnm";
@@ -114,7 +114,7 @@ namespace Hakaton.Controllers
             return View();
 
         }
-
+        
 
 
     }

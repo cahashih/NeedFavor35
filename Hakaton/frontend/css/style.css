@@ -1053,6 +1053,7 @@ input {
 	width: 40px;
 }
   
+<<<<<<<< HEAD:Hakaton/frontend/css/style.css
 .button {
     min-width: 150px;
     min-height: 25px;
@@ -1519,3 +1520,5 @@ div.overlay-blue:hover {
   }
   
   
+========
+>>>>>>>> 3c25b335f71f15b72a4b0f09f2b56f1e9d3956ab:Hakaton/frontend/old/style.css

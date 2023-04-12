@@ -58,6 +58,34 @@ namespace Hakaton.Controllers
                 _userManager = value;
             }
         }
+        public async Task<ActionResult> CreateAnnouncement()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> CreateAnnouncement(AddServiceCustomerExecutor model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            var userId = User.Identity.GetUserId();
+            var roles = await UserManager.GetRolesAsync(userId);
+            if (roles[0].ToString() == "Customer")
+            {
+                ServiceCustomerExecutor newService = new ServiceCustomerExecutor();
+                newService.ExecutorId = model.CustomerId;
+                newService.Title = model.Title;
+                newService.Description = model.Description;
+                newService.HaveCostStart = model.HaveCostStart.ToString();
+                newService.HaveCost = model.HaveCost.ToString();
+                newService.Period = model.Period;
+                newService.Position = model.Position;
+            }
+
+            return View();
+        }
 
         //
         // GET: /Manage/Index

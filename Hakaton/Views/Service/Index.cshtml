@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Hakaton.Models.CategoryServiceViewModel>
+﻿
 <!DOCTYPE html>
 
 <html>
@@ -7,13 +7,16 @@
     <title>Clickable List View</title>
 </head>
 <body>
+    <h2>Users</h2>
     <ul>
-        @foreach (var item in ViewBag.States)
+        @foreach (var user in ViewBag.Users)
         {
-            <li>
-                @Html.ActionLink( "Sam", "Details", "Service", new { id = item.CategoryServiceId })
-            </li>
+            <li>@user.Title</li>
+            <li>@user.Description</li>
+            <li>@user.HaveCostStart</li>
+            <li>@user.HaveCost</li>
         }
     </ul>
+
 </body>
 </html>

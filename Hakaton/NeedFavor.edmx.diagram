@@ -4,41 +4,44 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="41d488d2967e4767ba5a30fdd87f4c17" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.C__MigrationHistory" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.AspNetRoles" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.AspNetUserClaims" Width="1.5" PointX="10.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.AspNetUserLogins" Width="1.5" PointX="10.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.AspNetUsers" Width="1.5" PointX="8" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.City" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.TypeOfPlace" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
-        <AssociationConnector Association="db_a9744d_needfavorModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="db_a9744d_needfavorModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="db_a9744d_needfavorModel.AspNetUserRoles" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.AnnouncementService" Width="1.5" PointX="13.25" PointY="3.25" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.CategoryService" Width="1.5" PointX="8.75" PointY="7.375" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.ExecutionService" Width="1.5" PointX="18.5" PointY="3.125" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.FederalArea" Width="1.5" PointX="0.75" PointY="13.125" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.HistoryCustomer" Width="1.5" PointX="15.5" PointY="8.625" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.HistoryExecutor" Width="1.5" PointX="20.75" PointY="3.125" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.PhotoCompletedService" Width="1.5" PointX="15.5" PointY="2.875" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.Region" Width="1.5" PointX="0.75" PointY="10" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.Service" Width="1.5" PointX="11" PointY="7.125" />
-        <EntityTypeShape EntityType="db_a9744d_needfavorModel.StatusExecutionService" Width="1.5" PointX="16.25" PointY="5.5" />
+      <Diagram DiagramId="41d488d2967e4767ba5a30fdd87f4c17" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.AnnouncementService" Width="1.5" PointX="5.25" PointY="10.375" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="9.625" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="18.25" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="15.75" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.AspNetUsers" Width="1.5" PointX="3" PointY="7.5" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.CategoryService" Width="1.5" PointX="0.75" PointY="14.25" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.City" Width="1.5" PointX="3" PointY="17" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.ExecutionService" Width="1.5" PointX="7.5" PointY="9.75" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.FederalArea" Width="1.5" PointX="1.5" PointY="20.25" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.HistoryCustomer" Width="1.5" PointX="7.5" PointY="15.75" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.HistoryExecutor" Width="1.5" PointX="9.75" PointY="9.75" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.PhotoCompletedService" Width="1.5" PointX="7.5" PointY="13.25" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.Region" Width="1.5" PointX="0.75" PointY="17" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.Service" Width="1.5" PointX="3" PointY="14.125" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.ServiceCustomerExecutor" Width="1.5" PointX="5.25" PointY="6.125" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.StatusExecutionService" Width="1.5" PointX="5.25" PointY="3.25" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="db_a9744d_needfavorModel.TypeOfPlace" Width="1.5" PointX="3" PointY="4.75" />
         <AssociationConnector Association="db_a9744d_needfavorModel.FK_AnnouncementService_AspNetUsers" />
         <AssociationConnector Association="db_a9744d_needfavorModel.FK_ExecutionService_AnnouncementService" />
         <AssociationConnector Association="db_a9744d_needfavorModel.FK_HistoryCustomer_AnnouncementService" />
         <AssociationConnector Association="db_a9744d_needfavorModel.FK_PhotoCompletedService_AnnouncementService" />
-        <AssociationConnector Association="db_a9744d_needfavorModel.FK_RequestForService_City1" />
+        <AssociationConnector Association="db_a9744d_needfavorModel.FK_RequestForService_City" />
         <AssociationConnector Association="db_a9744d_needfavorModel.FK_RequestForService_Service" />
-        <AssociationConnector Association="db_a9744d_needfavorModel.FK_RequestForService_TypeOfPlace1" />
+        <AssociationConnector Association="db_a9744d_needfavorModel.FK_RequestForService_TypeOfPlace" />
+        <AssociationConnector Association="db_a9744d_needfavorModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="db_a9744d_needfavorModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="db_a9744d_needfavorModel.FK_ExecutionService_AspNetUsers" />
+        <AssociationConnector Association="db_a9744d_needfavorModel.FK_ServiceCustomerExecutor_AspNetUsers" />
+        <AssociationConnector Association="db_a9744d_needfavorModel.FK_ServiceCustomerExecutor_AspNetUsers1" />
         <AssociationConnector Association="db_a9744d_needfavorModel.FK_Service_CategoryService" />
         <AssociationConnector Association="db_a9744d_needfavorModel.FK_City_Region" />
         <AssociationConnector Association="db_a9744d_needfavorModel.FK_ExecutionService_StatusExecutionService" />
         <AssociationConnector Association="db_a9744d_needfavorModel.FK_HistoryExecutor_ExecutionService" />
         <AssociationConnector Association="db_a9744d_needfavorModel.FK_Region_FederalArea" />
+        <AssociationConnector Association="db_a9744d_needfavorModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

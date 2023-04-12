@@ -286,6 +286,9 @@
     <Compile Include="Service.cs">
       <DependentUpon>NeedFavor.tt</DependentUpon>
     </Compile>
+    <Compile Include="ServiceCustomerExecutor.cs">
+      <DependentUpon>NeedFavor.tt</DependentUpon>
+    </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>NeedFavor.tt</DependentUpon>
     </Compile>
@@ -391,6 +394,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Service\CreateAnnouncement.cshtml" />
     <None Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />

@@ -24,28 +24,25 @@ namespace Hakaton
         }
         public static db_a9744d_needfavorEntities GetContext()
         {
-            if(_context == null)
+            if (_context == null)
             {
                 _context = new db_a9744d_needfavorEntities();
             }
             return _context;
         }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
     
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<AnnouncementService> AnnouncementService { get; set; }
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
-        public virtual DbSet<City> City { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<TypeOfPlace> TypeOfPlace { get; set; }
-        public virtual DbSet<AnnouncementService> AnnouncementService { get; set; }
         public virtual DbSet<CategoryService> CategoryService { get; set; }
+        public virtual DbSet<City> City { get; set; }
         public virtual DbSet<ExecutionService> ExecutionService { get; set; }
         public virtual DbSet<FederalArea> FederalArea { get; set; }
         public virtual DbSet<HistoryCustomer> HistoryCustomer { get; set; }
@@ -53,7 +50,10 @@ namespace Hakaton
         public virtual DbSet<PhotoCompletedService> PhotoCompletedService { get; set; }
         public virtual DbSet<Region> Region { get; set; }
         public virtual DbSet<Service> Service { get; set; }
+        public virtual DbSet<ServiceCustomerExecutor> ServiceCustomerExecutor { get; set; }
         public virtual DbSet<StatusExecutionService> StatusExecutionService { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TypeOfPlace> TypeOfPlace { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

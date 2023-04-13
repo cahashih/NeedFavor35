@@ -1,36 +1,34 @@
 ﻿
 <!DOCTYPE html>
-
+@Styles.Render("~/Content/ViewCardService.css")
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Clickable List View</title>
 </head>
-<body>
-    <table>
-        <thead>
-            <tr>
-                <th>Услуга</th>
-                <th>Краткое описание</th>
-                <th>Желаемая стоимость</th>
-                <th>Сроки</th>
-                <th>Место оказания услуги</th>
-            </tr>
-        </thead>
-        <tbody>
+<body class="align">
+    
+    
+        
+
+
+
             @foreach (ServiceCustomerExecutor user in ViewBag.Users)
             {
-                <tr>
-                    <td>@user.Title</td>
-                    <td>@user.Description</td>
-                    <td>@user.HaveCostStart - @user.HaveCost</td>
-                    <td>@user.Period</td>
-                    <td>@user.Position</td>
-                    <td>@Html.ActionLink("Откликнуться", "TakeService", "Service", new { serviceId = user.id.ToString() }, null)</td>
-                </tr>
+                <div class="service-card">
+                    <h2 class="service-title">@user.Title</h2>
+                    <p class="service-description">@user.Description</p>
+                    <div class="service-info">
+                        <p class="service-price">@user.HaveCostStart - @user.HaveCost</p>
+                        <p class="service-duration">@user.Period</p>
+                    </div>
+                    <div class="service-info">
+                        <p class="service-price">@user.Position</p>
+
+                    </div>
+                    <button class="service-button">@Html.ActionLink("Откликнуться", "TakeService", "Service", new { serviceId = user.id.ToString() }, null)</button>
+                </div>
             }
-        </tbody>
-    </table>
 
 </body>
 </html>

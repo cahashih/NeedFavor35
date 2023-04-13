@@ -244,20 +244,28 @@ body {
   :root {
     --formGap: 0.875rem;
   }
-  
-  input {
+
+#HUI input {
     display: flex;
     background-image: none;
     border: 0;
-    
     color: inherit;
     font: inherit;
     margin: 0;
     outline: 0;
     padding: 10px;
     transition: background-color 0.3s;
-  }
+    -webkit-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+    -moz-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+    box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+    border-radius: 15px;
+    background-color: #FFF !important;
+}
 
+
+#HUI input:hover{
+    background-color: #e6e6e6 !important;
+}
   
   input[type="submit"] {
     cursor: pointer;
@@ -279,6 +287,7 @@ body {
   
   .form__input {
     flex: 1;
+    color: #000 !important;
   }
   
   /* modules/login.css */
@@ -582,3 +591,19 @@ body {
 #HUI{
     background: #FFF;
 }
+
+    #HUI input[type="submit"] {
+        cursor: pointer !important;
+        inline-size: 100% !important;
+        border-radius: 25px !important;
+        padding: 1rem !important;
+        background-color: #f9b17a !important;
+        color: #FFF !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        padding-left: 75px !important;
+    }
+
+    #HUI input[type="submit"]:hover{
+        background-color: #faa462 !important;
+    }

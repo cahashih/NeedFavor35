@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
+using static Hakaton.Controllers.ManageController;
 
 namespace Hakaton.Controllers
 {
@@ -81,7 +82,7 @@ namespace Hakaton.Controllers
             return View(selectedItem);
         }
 
-        [HttpPost]
+        
         public async Task<ActionResult> TakeService(string serviceId)
         {
             int ServiceIdd = Convert.ToInt32(serviceId);
@@ -92,11 +93,18 @@ namespace Hakaton.Controllers
                 var Service = await db_a9744d_needfavorEntities.GetContext().ServiceCustomerExecutor.FirstOrDefaultAsync(u => u.id == ServiceIdd);
                 Service.ExecutorId = userId;
                 await db_a9744d_needfavorEntities.GetContext().SaveChangesAsync();
-                return View();
+                return RedirectToAction("Complete", "Service");
             }
+            return RedirectToAction("Index", "Manage", new { Message = ManageMessageId.ServiceCustomerTake });
+        }
+
+
+        public ActionResult Complete()
+        {
+
             return View();
         }
-        public async Task<ActionResult> CreateAnnouncement()
+        public ActionResult CreateAnnouncement()
         {
             
             return View();
@@ -110,25 +118,25 @@ namespace Hakaton.Controllers
             }
             var userId = User.Identity.GetUserId();
             var roles = await UserManager.GetRolesAsync(userId);
-            
+
             if (roles[0].ToString() == "Customer")
             {
                 ServiceCustomerExecutor newService = new ServiceCustomerExecutor();
                 newService.CustomerId = userId;
-                newService.Title= model.Title;
-                newService.Description= model.Description;
+                newService.Title = model.Title;
+                newService.Description = model.Description;
                 newService.HaveCostStart = model.HaveCostStart.ToString();
                 newService.HaveCost = model.HaveCost.ToString();
-                newService.Period= model.Period;
-                newService.Position= model.Position;
+                newService.Period = model.Period;
+                newService.Position = model.Position;
                 db_a9744d_needfavorEntities.GetContext().ServiceCustomerExecutor.Add(newService);
                 await db_a9744d_needfavorEntities.GetContext().SaveChangesAsync();
-                return RedirectToAction("Index", "Manage");
+                return RedirectToAction("Index", "Manage", new { Message = ManageMessageId.ServiceCustomerCreate });
             }
             return View();
 
         }
-        
+
 
 
     }

@@ -7,6 +7,7 @@
     <title>NeedFavor35</title>
     @Styles.Render("~/Content/style.css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon" href="@Url.Content("~/Resource/Static/favicon.ico")" />
 
 </head>
 
@@ -22,7 +23,9 @@
                 @Html.Partial("_LoginPartial")
             </ul>
             <div>
-                <img src="@Url.Content("~/Resource/Static/123.png")" draggable="false" alt="">
+                <a href="@Url.Action("Index","Home")">
+                    <img src="@Url.Content("~/Resource/Static/123.png")" />
+                </a>
             </div>
         </nav>
         

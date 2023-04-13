@@ -102,6 +102,8 @@ namespace Hakaton.Controllers
                 : message == ManageMessageId.AddPhotoSuccess ? "Фото успешно добавлено"
                 : message == ManageMessageId.ChangeInfoSuccess ? "Информация успешно обновлена"
                 : message == ManageMessageId.FileIsNull ? "Выберите файл"
+                : message == ManageMessageId.ServiceCustomerCreate ? "Заявка создана"
+                : message == ManageMessageId.ServiceCustomerTake ? "Заказчик не может откликаться на заявки"
                 : "";
             ViewBag.Users = db_a9744d_needfavorEntities.GetContext().ServiceCustomerExecutor;
             
@@ -109,7 +111,7 @@ namespace Hakaton.Controllers
             var roles = await UserManager.GetRolesAsync(userId);
             var userDB = db_a9744d_needfavorEntities.GetContext().AspNetUsers.FirstOrDefault(u => u.Id == userId);
             string UserPhotoProfilePath = null;
-            if (userDB.PhotoProfilePath == null)
+            if (userDB.PhotoProfilePath == null || userDB.PhotoProfilePath == "")
             {
                 UserPhotoProfilePath = "~/Resource/ImageProfile/defoult.jpg";
             }
@@ -543,6 +545,8 @@ namespace Hakaton.Controllers
             AddPhotoSuccess,
             ChangeInfoSuccess,
             FileIsNull,
+            ServiceCustomerTake,
+            ServiceCustomerCreate,
             Error
         }
 

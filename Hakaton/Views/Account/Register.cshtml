@@ -1,6 +1,6 @@
 ﻿@model Hakaton.Models.RegisterViewModel
 @{
-    
+
     @Styles.Render("~/Content/reg.css")
 }
 
@@ -14,17 +14,18 @@
             <h1 class="registration-text">Регистрация</h1>
         </div>
 
-        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form login", role = "form" }))
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "form-login", @class = "form login", role = "form" }))
         {
             @Html.AntiForgeryToken()
-            
-            <hr />
+
             @Html.ValidationSummary("", new { @class = "text-danger" })
 
             <div class="form-group">
-                <label class="col-md-2 control-label"> Аккаунт заказчика</label>
+                <label class="col-md-2 control-label" id="acczak"> Аккаунт заказчика</label>
                 <div>
-                    @Html.CheckBoxFor(m => m.Role)
+                    <label id="labelcheck">
+                        @Html.CheckBoxFor(m => m.Role, new { @class = "option-input checkbox" })
+                    </label>
                 </div>
             </div>
 

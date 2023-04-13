@@ -9,13 +9,14 @@
 
 <body>
     @Styles.Render("~/Content/profile.css")
+    @Styles.Render("~/Content/viewUserService.css")
     <div class="main-container">
-
+        <p style=" font-size: 20pt; display:flex; border-radius: 15px; color: #FF8e38;" class="text-danger">@ViewBag.StatusMessage</p>
         <!-- HEADER -->
         <header class="block">
             <ul class="header-menu horizontal-list">
                 <li>
-                    <a class="header-menu-tab" href="#1"><span class="icon entypo-cog scnd-font-color"></span>Настройки</a>
+                    <a class="header-menu-tab" href="/Manage/ChangeProfileInfo"><span class="icon entypo-cog scnd-font-color"></span>Настройки</a>
                 </li>
                 <li>
                     <a class="header-menu-tab" href="#2"><span class="icon fontawesome-user scnd-font-color"></span>Аккаунт</a>
@@ -24,14 +25,17 @@
                     <a class="header-menu-tab" href="#3"><span class="icon fontawesome-envelope scnd-font-color"></span>Сообщения</a>
                     <a class="header-menu-number" href="#4">5</a>
                 </li>
-                <li>
-                    <a class="header-menu-tab" href="#5"><span class="icon fontawesome-star-empty scnd-font-color"></span>Заявки</a>
-                </li>
-            </ul>
+                @if (Model.Role == "Customer")
+                {
+                    <li>
+                        <a class="header-menu-tab" href="/Service/CreateAnnouncement"><span class="icon fontawesome-star-empty scnd-font-color"></span>Новая заявка</a>
+                    </li>
+                }
+                </ul>
             <div class="profile-menu">
                 <p>Подробнее <a href="#26"><span class="entypo-down-open scnd-font-color"></span></a></p>
                 <div class="profile-picture small-profile-picture">
-                    <img width="40px" src="@imageProfile" />
+                    <img width="40px" alt="Anne Hathaway picture" src="@imageProfile" />
                 </div>
             </div>
 
@@ -45,15 +49,18 @@
                 <h2 class="titular">Меню</h2>
                 <ul class="menu-box-menu">
                     <li>
-                        <a class="menu-box-tab" href="/Service/CreateAnnouncement"><span class="icon fontawesome-envelope scnd-font-color"></span>Сообщения<div class="menu-box-number">24</div></a>
+                        <a class="menu-box-tab" href="#6"><span class="icon fontawesome-envelope scnd-font-color"></span>Сообщения<div class="menu-box-number">24</div></a>
                     </li>
-                    <li>
-                        <a class="menu-box-tab" href="#10"><span class="icon entypo-calendar scnd-font-color"></span>Заявки<div class="menu-box-number">5</div></a>
-                    </li>
-                    <li>
-                        <a class="menu-box-tab" href="/Manage/ChangeProfileInfo"><span class="icon entypo-cog scnd-font-color"></span>Настройки аккаунта</a>
-                    </li>
-                </ul>
+                    @if (Model.Role == "Customer")
+                    {
+                        <li>
+                            <a class="menu-box-tab" href="/Service/CreateAnnouncement"><span class="icon entypo-calendar scnd-font-color"></span>Новая заявка</a>
+                        </li>
+                        }
+                        <li>
+                            <a class="menu-box-tab" href="/Manage/ChangeProfileInfo"><span class="icon entypo-cog scnd-font-color"></span>Настройки аккаунта</a>
+                        </li>
+                    </ul>
             </div>
 
 
@@ -61,15 +68,15 @@
         </div>
 
         <!-- MIDDLE-CONTAINER -->
-        <div class="middle-container container">
+        <div class="middle-container container container1">
 
             <div class="profile block">
                 <!-- PROFILE (MIDDLE-CONTAINER) -->
                 <h1 class="user-name">
                     Изменение параметров учетной записи @if (Model.Role == "Customer")
-                    {@("исполнителя")}
+                    {@("заказчика")}
                     else
-                    {@("заказчика")
+                    {@("исполнителя")
                     }
                 </h1>
                 <div class="profile-picture big-profile-picture clear">
@@ -97,44 +104,55 @@
                 <h2 class="titular">Изменить фото</h2>
                 <img alt="Anne Hathaway picture" style="width:100px; margin-left:100px; height:100px" src="@imageProfile" />
                 <h3>Выберите файл для загрузки</h3>
-                @using (Html.BeginForm("UploadImageProfile", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                @using (Html.BeginForm("UploadImageProfile", "Manage", FormMethod.Post, new { id = "formprofile", enctype = "multipart/form-data" }))
                 {
-                    <input type="file" name="upload" /><br>
-                    <input type="submit" value="Загрузить" />
+                    <label class="input-file">
+                        <input type="file" name="upload" id="zagruzit1" /><br>
+                        <span>Выберите файл</span>
+                    </label>
+                    <input type="submit" id="zagruzit" value="Загрузить" />
                 }
                 <a class="subscribe button" href="#21">Подписаться</a>
             </div>
 
         </div> <!-- end right-container -->
     </div> <!-- end main-container -->
-    <table>
-        <thead>
-            <tr>
-                <th>Услуга</th>
-                <th>Краткое описание</th>
-                <th>Желаемая стоимость</th>
-                <th>Сроки</th>
-                <th>Место оказания услуги</th>
-                <th>Откликнулся</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (ServiceCustomerExecutor user in ViewBag.Users)
-            {
+    @if (Model.Role == "Customer")
+    {
+        <table class="table-services">
+
+            <thead>
                 <tr>
-                    <td>@user.Title</td>
-                    <td>@user.Description</td>
-                    <td>@user.HaveCostStart - @user.HaveCost</td>
-                    <td>@user.Period</td>
-                    <td>@user.Position</td>
-                    <td>
-                        @if (user.ExecutorId != null)
-                        {@Html.ActionLink(user.AspNetUsers1.Email.ToString(), "User", "Account", new { userId = user.ExecutorId.ToString() }, null)
-                    }
-                                    </td>
-                    <td></td>
+                    <th colspan="6" class="title">Заявки на услугу</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+                <tr>
+                    <th>Услуга</th>
+                    <th>Краткое описание</th>
+                    <th>Желаемая стоимость</th>
+                    <th>Сроки</th>
+                    <th>Место оказания услуги</th>
+                    <th>Откликнулся</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ServiceCustomerExecutor user in ViewBag.Users)
+                {
+                    <tr>
+                        <td class="description">@user.Title</td>
+                        <td class="description">@user.Description</td>
+                        <td class="price">@user.HaveCostStart - @user.HaveCost</td>
+                        <td class="deadline">@user.Period</td>
+                        <td class="user">@user.Position</td>
+                        <td class="user">
+                            @if (user.ExecutorId != null)
+                            {@Html.ActionLink(user.AspNetUsers1.Email.ToString(), "UserView", "Account", new { userId = user.ExecutorId.ToString() }, null)
+                        }
+                        </td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
 </body>

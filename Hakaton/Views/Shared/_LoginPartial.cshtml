@@ -15,8 +15,14 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li class="btnn"><button class="button btnn-ent">@Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "animated-button1", id = "registerLink" })</button></li>
-        <li class="btnn"> <button class="button">@Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "animated-button1", id = "loginLink" })</button></li>
-    </ul>
+<ul class="nav navbar-nav navbar-right">
+    @using (Html.BeginForm("Login", "Account", FormMethod.Get, new { id = "formId" }))
+    {
+        <li class="btnn"><button type="submit" form="formId" value="Submit" class="button btnn-ent">Войти</button></li>
+    }
+    @using (Html.BeginForm("Register", "Account", FormMethod.Get, new { id = "formId" }))
+    {
+        <li class="btnn"><button type="submit" form="formId" value="Submit" class="button btnn-ent">Регистрация</button></li>
+    }
+</ul>
 }

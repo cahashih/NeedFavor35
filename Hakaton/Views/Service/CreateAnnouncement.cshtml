@@ -18,8 +18,8 @@
         <div class="registration-container">
             <h1 class="registration-text">Заявка на услугу</h1>
         </div>
-        <form id="HUI" >
-            @using (Html.BeginForm())
+        
+            @using (Html.BeginForm("CreateAnnouncement", "Service", FormMethod.Post, new { id = "HUI",  @class = "form login", role = "form" }))
             {
                 @Html.AntiForgeryToken()
 
@@ -29,50 +29,51 @@
 
                     <div class="form__field">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { placeholder = "Введите почту", @class = "form__input", required = "required" } })
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { placeholder = "Введите заголовок", @class = "form__input", required = "required" } })
                         </div>
                     </div>
 
 
                     <div class="form__field">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { placeholder = "Введите описание", @class = "form__input" } })
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { placeholder = "Введите описание", @class = "form__input", required = "required" } })
                         </div>
                     </div>
 
                     <div class="form__field">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.HaveCostStart, new { htmlAttributes = new { placeholder = "Введите стоимость", @class = "form__input" } })
+                            @Html.EditorFor(model => model.HaveCostStart, new { htmlAttributes = new { type = "number", placeholder = "Введите стоимость от-", @class = "form__input", required = "required" } })
                         </div>
                     </div>
 
                     <div class="form__field">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.HaveCost, new { htmlAttributes = new { placeholder = "Введите стоимость", @class = "form__input" } })
+                            @Html.EditorFor(model => model.HaveCost, new { htmlAttributes = new { type = "number", placeholder = "Введите стоимость до-", @class = "form__input", required = "required" } })
                         </div>
                     </div>
 
                     <div class="form__field">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Period, new { htmlAttributes = new { placeholder = "Введите срок в строку", @class = "form__input" } })
+                            @Html.EditorFor(model => model.Period, new { htmlAttributes = new { placeholder = "Введите срок в строку", @class = "form__input", required = "required" } })
                         </div>
                     </div>
 
                     <div class="form__field">
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Position, new { htmlAttributes = new { placeholder = "Введите место услуги", @class = "form__input" } })
+                            @Html.EditorFor(model => model.Position, new { htmlAttributes = new { placeholder = "Введите место услуги", @class = "form__input", required = "required" } })
                         </div>
                     </div>
-
+                    <div class="form__field">
+                        
+                            <input  type="submit" value="Создать" />
+                       
+                    </div>
                 </div>
+
             }
 
-        </form>
-        <div class="form__field">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Создать" class="btn" />
-            </div>
-        </div>
+
+        
     </div>
 </body>
 </html>

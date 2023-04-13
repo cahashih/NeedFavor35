@@ -89,10 +89,11 @@ a {
 	}
 
 h1, h2, p, a, span{
-	color: #fff;
+	color: #2d3250;
 }
 	.scnd-font-color {
 		color: #9099b7;
+		padding-top: 10px;
 	}
 
 .input-container {
@@ -222,14 +223,22 @@ h1, h2, p, a, span{
 }
 	.big-profile-picture {
 		margin: 0 auto;		
-		border: 5px solid #50597b;
+		-webkit-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+		-moz-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+		box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
 		width: 150px;
 		height: 150px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	.small-profile-picture {
 		border: 2px solid #50597b;
 		width: 40px;
 		height: 40px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 
@@ -256,15 +265,15 @@ h1, h2, p, a, span{
 				.header-menu-tab {
 					padding: 0 27px;
 					display: block;
-					line-height: 74px;
+					line-height: 80px;
 					font-size: 17px;
 					-webkit-transition: background .3s;
 					transition: background .3s;
 				}
 					.header-menu-tab:hover {
-						background: #50597b;
-						border-bottom: 4px solid #11a8ab;
+						background: #f9b17a;
 						text-decoration: none;
+						transition: background .3s;
 					}
 					.header-menu-tab .icon {
 						padding-right: 15px;
@@ -274,12 +283,15 @@ h1, h2, p, a, span{
 					line-height: 22px;
 					padding: 0 6px;
 					font-weight: 700;
-					background: #e64c65;
+					background: #f9b17a;
 					border-radius: 100%;
 					top: 15px;
 					right: 2px;
 					-webkit-transition: all .3s linear;
 					transition: all .3s linear;
+					-webkit-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+					-moz-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+					box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
 				}
 					.header-menu li:hover .header-menu-number {
 						text-decoration: none;
@@ -313,19 +325,23 @@ h1, h2, p, a, span{
 	.container {
 		float: left;
 		width: 300px;
+		height: 600px;
 	}
 		.block {
 			margin-bottom: 25px;
-			background: #394264;
-			border-radius: 5px;
+			background: #FFF;
+			-webkit-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+			-moz-box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+			box-shadow: 0px 12px 20px 0px rgba(34, 60, 80, 0.1);
+			border-radius: 15px;
 		}
 		/******************************************** LEFT CONTAINER *****************************************/
 		.left-container {}
 			.menu-box {
-				height: 410px;
+				height: 600px;
 			}
 				.menu-box .titular {
-					background: #11a8ab;
+					background: #f9b17a;
 				}
 				.menu-box-menu .icon {
 					display: inline-block;
@@ -337,7 +353,7 @@ h1, h2, p, a, span{
 				.menu-box-number {
 					width: 36px;
 					line-height: 22px;
-					background: #50597b;
+					background: #f9b17a;
 					text-align: center;
 					border-radius: 15px;
 					position: absolute;
@@ -345,6 +361,7 @@ h1, h2, p, a, span{
 					right: 15px;
 					-webkit-transition: all .3s;
 					transition: all .3s;
+
 				}
 				.menu-box-menu li{
 					height: 60px;
@@ -358,15 +375,14 @@ h1, h2, p, a, span{
 					transition: background .2s;
 				}
 					.menu-box-tab:hover {
-						background: #50597b;
-						border-top: 1px solid #1f253d;
+						background: #e7e7e7;
 						text-decoration: none;
 					}
 					.menu-box-tab:hover .icon {
 						color: #fff;
 					}
 					.menu-box-tab:hover .menu-box-number {
-						background: #e64c65;
+						background: #ffcca5;
 					}
 			.donut-chart-block {
 				height: 434px;
@@ -718,7 +734,7 @@ h1, h2, p, a, span{
 			margin: 0 25px;			
 		}
 			.profile {
-				height: 410px;
+				height: 600px;
 			}
 				.add-button .icon {
 					float: right;
@@ -1077,3 +1093,122 @@ h1, h2, p, a, span{
 						border-radius: 100%;
 					}
 
+					.container1{
+						background-color: #FFF !important;
+						height: 600px;
+						margin-bottom: 100px;
+					}
+
+					#formprofile{
+						background-color: #FFF;
+					}
+ul li{
+	margin-bottom: 0px !important;
+}
+
+#zagruzit{
+	cursor: pointer !important;
+	inline-size: 100% !important;
+	border-radius: 5px !important;
+
+	background-color: #f9b17a !important;
+    color: #FFF !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+	transition: 0.5s;
+	padding: 1rem !important;
+}
+
+#zagruzit:hover{
+	
+	background-color: #fdc294 !important;
+	transition: 0.5s;
+}
+
+#zagruzit1{
+	cursor: pointer !important;
+	inline-size: 100% !important;
+	border-radius: 5px !important;
+    padding: 1rem !important;
+	background-color: #f9b17a !important;
+    color: #FFF !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+	transition: 0.5s;
+}
+
+#zagruzit1:hover{
+	
+	background-color: #fdc294 !important;
+	transition: 0.5s;
+}
+
+#file-upload-button{
+	cursor: pointer !important;
+	inline-size: 100% !important;
+	border-radius: 5px !important;
+    padding: 1rem !important;
+	background-color: #f9b17a !important;
+    color: #FFF !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+	transition: 0.5s;
+}
+
+.input-file {
+	position: relative;
+	display: inline-block;
+
+}
+.input-file span {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+	font-size: 14px;
+	vertical-align: middle;
+	color: rgb(255 255 255);
+	text-align: center;
+	border-radius: 4px;
+	background-color: #2d3250;
+	line-height: 22px;
+	height: 40px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	border: none;
+	margin: 0;
+	transition: background-color 0.2s;
+	width: 200px;
+	height: 60px;
+	font-weight: 500 !important;
+    text-transform: uppercase !important;
+	transition: 0.5s;
+	padding: 1rem !important;
+}
+.input-file input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+ 
+/* Focus */
+.input-file input[type=file]:focus + span {
+	box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+ 
+/* Hover/active */
+.input-file:hover span {
+	background-color: #424558;
+}
+.input-file:active span {
+	background-color: #2b335f;
+}
+ 
+/* Disabled */
+.input-file input[type=file]:disabled + span {
+	background-color: #eee;
+}

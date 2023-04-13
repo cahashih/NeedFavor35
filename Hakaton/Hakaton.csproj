@@ -314,6 +314,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\contacts.css" />
+    <Content Include="Content\createAnnouncement.css" />
     <Content Include="Content\enter.css" />
     <Content Include="Content\err404.css" />
     <Content Include="Content\profile.css" />
@@ -322,6 +323,8 @@
     <Content Include="Content\reg.css" />
     <Content Include="Content\regfin.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\ViewCardService.css" />
+    <Content Include="Content\viewUserService.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -343,9 +346,22 @@
     <Content Include="Resource\Static\7lAjP58Sjl4.jpg" />
     <Content Include="Resource\Static\AdobeStock_55881857-e1498621656639.jpeg" />
     <Content Include="Resource\Static\asd.png" />
+    <Content Include="Resource\Static\Avva.png" />
+    <Content Include="Resource\Static\Avva2.png" />
+    <Content Include="Resource\Static\Avva3,png.png" />
+    <Content Include="Resource\Static\Avva4.png" />
+    <Content Include="Resource\Static\back.jpg" />
+    <Content Include="Resource\Static\back2.jpg" />
+    <Content Include="Resource\Static\back3.jpg" />
+    <Content Include="Resource\Static\back4.jpg" />
+    <Content Include="Resource\Static\favicon.ico" />
     <Content Include="Resource\Static\klipartz.com 1.png" />
     <Content Include="Resource\Static\klipartz.com.png" />
     <Content Include="Resource\Static\Le-recours-contre-un-permis-de-construire.jpg" />
+    <Content Include="Resource\Static\logo2.svg" />
+    <Content Include="Resource\Static\main.svg" />
+    <Content Include="Resource\Static\person.svg" />
+    <Content Include="Resource\Static\star.svg" />
     <Content Include="Resource\Static\str.png" />
     <Content Include="Resource\Static\stroitel-universal-i.jpg" />
     <Content Include="Resource\Static\usl1.jpg" />
@@ -369,6 +385,7 @@
     <None Include="Properties\PublishProfiles\pivasblazer-001-site1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\contacts.js" />
+    <Content Include="Scripts\jquery-2.2.4.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -383,6 +400,8 @@
     <Content Include="Scripts\regfin.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\scriptt.js" />
+    <Content Include="Scripts\SmoothScroll.min.js" />
+    <Content Include="Scripts\TweenMax.min.js" />
     <Content Include="Content\createAnnouncement.css" />
     <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Web.config" />
@@ -395,8 +414,9 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
-    <Content Include="Views\Service\CreateAnnouncement.cshtml" />
     <Content Include="Views\Account\UserView.cshtml" />
+    <Content Include="Views\Service\CreateAnnouncement.cshtml" />
+    <Content Include="Views\Service\Complete.cshtml" />
     <None Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />

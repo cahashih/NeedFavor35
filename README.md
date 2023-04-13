@@ -1,2 +1,1 @@
-# MeindMaster:
-https://www.mindmeister.com/map/1489709918
+#САЙТ http://pivasblazer-001-site1.itempurl.com

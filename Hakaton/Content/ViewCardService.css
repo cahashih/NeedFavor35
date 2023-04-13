@@ -1,0 +1,60 @@
+﻿.service-card {
+    display: grid;
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.service-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.service-description {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 10px;
+}
+
+.service-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.service-price {
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 5px;
+}
+
+.service-duration {
+    font-size: 14px;
+    color: #666666;
+}
+
+.service-button {
+    background-color: #4582EC;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+button a {
+    text-decoration: none !important;
+    color: #FFF !important;
+}
+
+button:hover{
+    background-color: #fb9c54 !important;
+}

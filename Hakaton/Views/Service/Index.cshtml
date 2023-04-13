@@ -19,7 +19,7 @@
         </thead>
         <tbody>
             @foreach (ServiceCustomerExecutor user in ViewBag.Users)
-        {
+            {
                 <tr>
                     <td>@user.Title</td>
                     <td>@user.Description</td>
@@ -28,7 +28,7 @@
                     <td>@user.Position</td>
                     <td>@Html.ActionLink("Откликнуться", "TakeService", "Service", new { serviceId = user.id.ToString() }, null)</td>
                 </tr>
-        }
+            }
         </tbody>
     </table>
 

@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@Styles.Render("~/Content/akno.css")
+@Styles.Render("//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css")
+@Styles.Render("//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css")
+<body>
+    <header class="site-header" id="header">
+    </header>
+    <div class="main-content">
+        <i class="fa fa-check main-content__checkmark" id="checkmark" style="color: #f9b17a;"></i>
+        <p class="main-content__body" style="margin-top: 200px" data-lead-id="main-content-body" style="font-size: 24px;">Вы откликнулись на услугу</p>
+    </div>
+    <button style="margin-top: -500px" class="bubbly-button"> @Html.ActionLink("Вернуться в личный кабинет", "Index", "Manage", routeValues: null, htmlAttributes: new { id = "loginLink" })</button>
+</body>
+</html>

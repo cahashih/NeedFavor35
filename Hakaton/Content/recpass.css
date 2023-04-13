@@ -131,7 +131,6 @@ body {
   
   .align {
     display: grid;
-    margin-top: -80px;
     place-items: center;
   }
   
@@ -426,7 +425,3 @@ body {
   position: relative;
   z-index: 5;
   display: none;}
-
-  #ZAEBALO{
-    background-color: #FFF;
-  }
